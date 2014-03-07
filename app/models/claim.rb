@@ -49,7 +49,7 @@
   def populate(data)
     # populate claim data via regex on hocr_layer
     self.claimant_name(data)
-    self.damages(data)
+    self.populate_damages(data)
     self.save
   end
 
@@ -61,11 +61,13 @@
     end
   end
 
-  def damages(data)
-    damages = /(?<=\n)([^\n\.)]+)[\.\s]+(\$?\d+\s\d+)(?=\n)/.scan(data)
-    damages.each do |damage|
-      self.damages << Damage.create(description: damage[0], total_cost: damage[1])
+  def populate_damages(data)
+    new_damages = data.scan(/(?<=\n)([^\n\.)]+)[\.\s]+(\$?\d+\s\d+)(?=\n)/)
+    new_damages.each do |damage|
+      cost = damage[1].gsub("$", "").gsub(" ", ".").to_f
+      self.damages << Damage.create(description: damage[0], total_cost: cost)
     end
+    self.save
   end
 
 

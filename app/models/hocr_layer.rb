@@ -52,7 +52,7 @@ class HocrLayer < ActiveRecord::Base
       if record_info
         if /.*REPORT.*\(Record\sNo.\s(\d+),\sof\s1863\.\).*/m.match(data)
           hocr_layer.link_claim(current_claim)
-          hocr_layer.populate_claim(current_claim, data)
+          current_claim.populate(data)
         end
         # this is the start of a claim
         current_record = record_info[1].to_i
@@ -74,7 +74,7 @@ class HocrLayer < ActiveRecord::Base
     self.save
   end
 
-  
+
 
 
 end
