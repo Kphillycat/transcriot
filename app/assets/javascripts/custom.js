@@ -7,7 +7,7 @@ $(document).ready( function() {
   var boxColor = "";
   var description = "";
   var $ocrx_word = $('.ocrx_word');
-  var hocrWords = prepareWordsHash();
+  var hocrWords = prepareWords();
 
   $ocrx_word.addClass('transparent');
 
@@ -68,7 +68,6 @@ $(document).ready( function() {
       $(".x-out").on("click", function(){
         $(this).parent().remove();
       });
-      console.log("start: "+ startCoordinate.x + " end: " +endCoordinate.x);
       console.log(findWords(startCoordinate, endCoordinate));
     }); 
 
@@ -104,20 +103,20 @@ $(document).ready( function() {
       }
   });
   
-  function prepareWordsHash(){
-    var hocr_words = new Object;
+  function prepareWords(){
+    var hocr_words = [];
     $ocrx_word.each(function(index, el){
-      hocr_words[$(el).text()] = [+$(el).css("left").slice(0,-2),+$(el).css("top").slice(0,-2)];
+      hocr_words.push([+$(el).css("left").slice(0,-2),+$(el).css("top").slice(0,-2), $(el).text()]);
     });
     return hocr_words;
   }
 
   function findWords(start, end){
     var wordsArray = [];
-    jQuery.each(hocrWords, function(word, coords){
-      if (coords[0] >= start.x && coords[0] <= end.x){
-        if (coords[1] >= start.y && coords[1] <= end.y){
-          wordsArray.push(word + " left: "+ coords[0] + " top: "+ coords[1]); 
+    jQuery.each(hocrWords, function(index, infoArray){
+      if (infoArray[0] >= start.x && infoArray[0] <= end.x){
+        if (infoArray[1] >= start.y && infoArray[1] <= end.y){
+          wordsArray.push(infoArray[2] + " left: "+ infoArray[0] + " top: "+ infoArray[1]); 
         }
       }
     }); 
