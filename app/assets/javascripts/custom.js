@@ -4,13 +4,12 @@ $(document).ready( function() {
   var imgDivOffset = $imgDiv.offset();
   var $img = $imgDiv.find("img");
   var $highlighter = $(".highlighter");
-
-  var startCoordinate = {};
-  var endCoordinate = {};
   var boxColor = "";
   var description = "";
+  var $ocrx_word = $('.ocrx_word');
+  var hocrWords = prepareWordsHash();
 
-  $(".ocrx_word").addClass('transparent');
+  $ocrx_word.addClass('transparent');
 
   $img.on("dragstart", function() {
     return false;
@@ -36,6 +35,8 @@ $(document).ready( function() {
 
   $imgDiv.on("mousedown input:not('.overlay')", function(e) {
     var overlays = [];
+    var startCoordinate = {};
+    var endCoordinate = {};
     startCoordinate = getMousePos(e);
     $imgDiv.on("mousemove", function(e) {
       endCoordinate = getMousePos(e);
@@ -67,6 +68,8 @@ $(document).ready( function() {
       $(".x-out").on("click", function(){
         $(this).parent().remove();
       });
+      console.log("start: "+ startCoordinate.x + " end: " +endCoordinate.x);
+      console.log(findWords(startCoordinate, endCoordinate));
     }); 
 
   });
@@ -85,7 +88,6 @@ $(document).ready( function() {
   });
 
   $('.hocr_toggle').on("click", function(){
-    var $ocrx_word = $('.ocrx_word');
     if ($ocrx_word.hasClass('transparent')){
       $ocrx_word.removeClass('transparent');
     }else{
@@ -101,10 +103,25 @@ $(document).ready( function() {
       $this.addClass('transparent');
       }
   });
+  
+  function prepareWordsHash(){
+    var hocr_words = new Object;
+    $ocrx_word.each(function(index, el){
+      hocr_words[$(el).text()] = [+$(el).css("left").slice(0,-2),+$(el).css("top").slice(0,-2)];
+    });
+    return hocr_words;
+  }
 
+  function findWords(start, end){
+    var wordsArray = [];
+    jQuery.each(hocrWords, function(word, coords){
+      if (coords[0] >= start.x && coords[0] <= end.x){
+        if (coords[1] >= start.y && coords[1] <= end.y){
+          wordsArray.push(word + " left: "+ coords[0] + " top: "+ coords[1]); 
+        }
+      }
+    }); 
+    return wordsArray;   
+  }
+    
 });
-
-
-
-
-
