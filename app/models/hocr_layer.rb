@@ -60,7 +60,7 @@ class HocrLayer < ActiveRecord::Base
       end
       if current_claim
         hocr_layer.link_claim(current_claim)
-        hocr_layer.populate_claim(current_claim, data)
+        current_claim.populate(data)
       end
     end
   end
@@ -74,17 +74,7 @@ class HocrLayer < ActiveRecord::Base
     self.save
   end
 
-  # populates claim info in database
-  def populate_claim(claim, data)
-    # grab name
-    claimant = /.*CLAIM\sOF\s(\w+\s+\w+)\.\W*\(Record\sNo\.\s\d+,\sof\s1863\.\).*/.match(data)
-    if claimant
-      claim.people << Person.create(:name => claimant[1].name_caps, :role => "claimant")
-    end
-    # populate claim data via regex on hocr_layer
-
-    claim.save
-  end
+  
 
 
 end
