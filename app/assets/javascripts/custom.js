@@ -68,7 +68,8 @@ $(document).ready( function() {
       $(".x-out").on("click", function(){
         $(this).parent().remove();
       });
-      console.log(findWords(startCoordinate, endCoordinate));
+      var words = findWords(startCoordinate, endCoordinate);
+      $("#"+boxColor).val(words);
     }); 
 
   });
@@ -113,14 +114,15 @@ $(document).ready( function() {
 
   function findWords(start, end){
     var wordsArray = [];
-    jQuery.each(hocrWords, function(index, infoArray){
+    $.each(hocrWords, function(index, infoArray){
+      if (infoArray[0] > end.x) return wordsArray;
       if (infoArray[0] >= start.x && infoArray[0] <= end.x){
         if (infoArray[1] >= start.y && infoArray[1] <= end.y){
-          wordsArray.push(infoArray[2] + " left: "+ infoArray[0] + " top: "+ infoArray[1]); 
+          wordsArray.push(infoArray[2]); 
         }
       }
     }); 
-    return wordsArray;   
+    return wordsArray.join(" ");   
   }
     
 });
