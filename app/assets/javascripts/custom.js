@@ -72,10 +72,13 @@ $(document).ready( function() {
       var words = findWords(startCoordinate, endCoordinate);
       console.log(words);
 
-      if ($inputFieldId.attr("type") == "number"){
+      if($inputFieldId.attr("type") == "number"){
         words = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
-
+      } else if($inputFieldId.attr("type") == "date") {
+        var date = new Date(/.*\d{4}/.exec(words)[0]);
+        words = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
       }
+
       $inputFieldId.val(words);
     }); 
 
