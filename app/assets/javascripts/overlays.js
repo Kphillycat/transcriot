@@ -1,13 +1,12 @@
 $(document).ready( function() {
 
-  var $imgDiv = $(".transcribe-image-holder");
+  var $imgDiv = $(".page-img");
   var imgDivOffset = $imgDiv.offset();
   var $img = $imgDiv.find("img");
   var $highlighter = $(".highlighter");
   var boxColor = "";
   var description = "";
   var $ocrx_word = $('.ocrx_word');
-  var hocrWords = prepareWords();
 
   $ocrx_word.addClass('transparent');
 
@@ -15,10 +14,10 @@ $(document).ready( function() {
     return false;
   });
 
-  function getMousePos(e) {
+  function getMousePos(e, $pageDiv) {
     var pos = {
-      x: e.pageX - $imgDiv.offset().left,
-      y: e.pageY - $imgDiv.offset().top
+      x: e.pageX - $pageDiv.offset().left,
+      y: e.pageY - $pageDiv.offset().top
     };
     return pos;
   }
@@ -34,15 +33,16 @@ $(document).ready( function() {
   });
 
   $imgDiv.on("mousedown input:not('.overlay')", function(e) {
+    var $this = $(this);
     var overlays = [];
-    var startCoordinate = {};
+    var startCoordinate = getMousePos(e, $this);
     var endCoordinate = {};
-    startCoordinate = getMousePos(e);
-    $imgDiv.on("mousemove", function(e) {
-      endCoordinate = getMousePos(e);
+
+    $this.on("mousemove", function(e) {
+      endCoordinate = getMousePos(e, $(this));
       $("#"+boxColor).focus();
       
-      var $overlay = $("<div class='overlay' title='" + description + "'><div class='x-out hidden'><span class='x-in'>x</span></div></div>").appendTo($imgDiv);
+      var $overlay = $("<div class='overlay' title='" + description + "'><div class='x-out hidden'><span class='x-in'>x</span></div></div>").appendTo($this);
       $(".flag").not($overlay).removeClass("flag").find(".x-out").addClass("hidden");
       $overlay.attr("id","box"+startCoordinate.y+startCoordinate.x)
               .css("top", Math.min(startCoordinate.y, endCoordinate.y))
@@ -63,23 +63,27 @@ $(document).ready( function() {
       overlays.push($overlay);  
     })
     .on("mouseup", function(){  
-      $(this).unbind("mousemove");
+      var $this = $(this);
+      $this.unbind("mousemove");
       $(".flag").find(".x-out").removeClass("hidden");
       $(".x-out").on("click", function(){
         $(this).parent().remove();
       });
-      var $inputFieldId = $("#"+boxColor);
-      var words = findWords(startCoordinate, endCoordinate);
-      console.log(words);
+      var pageClass = $this.attr("class").split(" ")[1];
+      var hocrWords = prepareWords(pageClass);
+      var $inputField = $("#"+boxColor);
+      var words = findWords(startCoordinate, endCoordinate, hocrWords);
+      console.log(words + " a word");
 
-      if($inputFieldId.attr("type") == "number"){
+      if($inputField.attr("type") == "number"){
         words = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
-      } else if($inputFieldId.attr("type") == "date") {
+      } else if($inputField.attr("type") == "date") {
         var date = new Date(/.*\d{4}/.exec(words)[0]);
         words = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
       }
-
-      $inputFieldId.val(words);
+      if(words){
+        $inputField.val(words);
+      }
     }); 
 
   });
@@ -114,17 +118,17 @@ $(document).ready( function() {
       }
   });
   
-  function prepareWords(){
-    var hocr_words = [];
-    $ocrx_word.each(function(index, el){
-      hocr_words.push([+$(el).css("left").slice(0,-2),+$(el).css("top").slice(0,-2), $(el).text()]);
+  function prepareWords(className){
+    var prepWords = [];
+    $("." + className).find(".ocrx_word").each(function(index, el){
+      prepWords.push([+$(el).css("left").slice(0,-2),+$(el).css("top").slice(0,-2), $(el).text()]);
     });
-    return hocr_words;
+    return prepWords;
   }
 
-  function findWords(start, end){
+  function findWords(start, end, wordsSet){
     var wordsArray = [];
-    $.each(hocrWords, function(index, infoArray){
+    $.each(wordsSet, function(index, infoArray){
       if (infoArray[0] > end.x) return wordsArray;
       if (infoArray[0] >= start.x && infoArray[0] <= end.x){
         if (infoArray[1] >= start.y && infoArray[1] <= end.y){

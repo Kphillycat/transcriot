@@ -21,4 +21,5 @@
         
   .transcribe-image-holder
     - Claim.find(params[:id]).hocr_layers.each do |current_hocr|
-      = render :file => "/hocr_files/_p#{current_hocr.filename}_hocr"
+      %div{:class=>"page-img #{current_hocr.filename}"}
+        = render :file => "/hocr_files/_p#{current_hocr.filename}_hocr"
