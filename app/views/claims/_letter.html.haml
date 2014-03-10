@@ -1,1 +1,8 @@
-%h1 Letter
+%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"letter hidden"}
+  
+  %label Letter to the Comptroller
+  %br
+  %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
+  %span.highlighter.claim_date
+    %label{:for=>"claim_date"} Claim Date
+  %br

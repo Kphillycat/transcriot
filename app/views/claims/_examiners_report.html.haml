@@ -1,1 +1,8 @@
-%h1 Report
+%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"report hidden"}
+  
+  %label Examiner's Report
+  %br
+  %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
+  %span.highlighter.claim_date
+    %label{:for=>"claim_date"} Claim Date
+  %br

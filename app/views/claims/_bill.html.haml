@@ -1,1 +1,8 @@
-%h1 Bill
+%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"bill hidden"}
+  
+  %label Bill
+  %br
+  %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
+  %span.highlighter.claim_date
+    %label{:for=>"claim_date"} Claim Date
+  %br

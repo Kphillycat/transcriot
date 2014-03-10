@@ -1,7 +1,7 @@
-%h1 General
-
-%form{:action=>"/claims/#{params[:id]}", :method=>"post"}
-
+%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"general"}
+  
+  %label Claim Overview
+  %br
   %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
   %span.highlighter.claim_date
     %label{:for=>"claim_date"} Claim Date
