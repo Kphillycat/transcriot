@@ -10,23 +10,27 @@ input{
 	width: 40%;
 }
 
+form{
+
+}
+
 .spacer{
 	display: inline-block;
 	position: relative;
-	height: 50%;
-	width: 45%; 
+	height: 100%;
+	width: 45%;
 }
 
 .transcript{
 	display: inline-block;
-	height: 100%;
-	width: 45%; 
 	padding-top: 50px;
-	padding-bottom: 137px;
+	padding-bottom: 200px;
 	position: fixed;
+	overflow: scroll;
+	width: 45%; 
 	top: 0;
+	bottom: 0;
 	left: 0;
-	bottom: 9em;
 
 	background: -webkit-radial-gradient(ellipse, rgb(235, 225, 200) 60%, rgb(223,  194, 156));
 }
@@ -34,7 +38,6 @@ input{
 .form-div{
 	padding-left: 15%;
 	font-size: 1.3em;
-	overflow: visible;
 
 	input{
 		font-size: 19px;
