@@ -68,8 +68,15 @@ $(document).ready( function() {
       $(".x-out").on("click", function(){
         $(this).parent().remove();
       });
+      var $inputFieldId = $("#"+boxColor);
       var words = findWords(startCoordinate, endCoordinate);
-      $("#"+boxColor).val(words);
+      console.log(words);
+
+      if ($inputFieldId.attr("type") == "number"){
+        words = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
+
+      }
+      $inputFieldId.val(words);
     }); 
 
   });

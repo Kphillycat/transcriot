@@ -1,4 +1,3 @@
-require 'debugger'
 class HocrLayer < ActiveRecord::Base
   belongs_to :image
   has_many :hocr_lines
@@ -65,7 +64,6 @@ class HocrLayer < ActiveRecord::Base
     end
   end
 
-
   # create association between hocr_layer and claim if it doesn't already exist
   def link_claim(claim)
     if !self.claims.include? claim
@@ -73,9 +71,6 @@ class HocrLayer < ActiveRecord::Base
     end
     self.save
   end
-
-
-
 
 end
 
