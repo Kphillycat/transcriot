@@ -15,6 +15,7 @@ $(document).ready( function() {
   });
 
   function getMousePos(e, $pageDiv) {
+    var w = $(window);
     var pos = {
       x: e.pageX - $pageDiv.offset().left,
       y: e.pageY - $pageDiv.offset().top
@@ -39,7 +40,7 @@ $(document).ready( function() {
     var endCoordinate = {};
 
     $this.on("mousemove", function(e) {
-      endCoordinate = getMousePos(e, $(this));
+      endCoordinate = getMousePos(e, $this);
       $("#"+boxColor).focus();
       
       var $overlay = $("<div class='overlay' title='" + description + "'><div class='x-out hidden'><span class='x-in'>x</span></div></div>").appendTo($this);
