@@ -85,8 +85,8 @@ $(document).ready( function() {
       if(words){
         $inputField.val(words);
       }
-    }); 
-
+    });
+    
   });
   
   $('body').on("click", function(e){
@@ -110,7 +110,7 @@ $(document).ready( function() {
     }
   });
 
-  $('.ocrx_word').on("click", function(e){
+  $ocrx_word.on("click", function(e){
     var $this = $(this);
     if ($this.hasClass('transparent')){
       $this.removeClass('transparent');
