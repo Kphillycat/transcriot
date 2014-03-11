@@ -42,7 +42,7 @@ $(document).ready( function() {
     $this.on("mousemove", function(e) {
       endCoordinate = getMousePos(e, $this);
       $("#"+boxColor).focus();
-      
+
       var $overlay = $("<div class='overlay' title='" + description + "'><div class='x-out hidden'><span class='x-in'>x</span></div></div>").appendTo($this);
       $(".flag").not($overlay).removeClass("flag").find(".x-out").addClass("hidden");
       $overlay.attr("id","box"+startCoordinate.y+startCoordinate.x)
@@ -70,15 +70,17 @@ $(document).ready( function() {
       $(".x-out").on("click", function(){
         $(this).parent().remove();
       });
+      
       var pageClass = $this.attr("class").split(" ")[1];
       var hocrWords = prepareWords(pageClass);
+      console.log(words);
       var $inputField = $("#"+boxColor);
       var words = findWords(startCoordinate, endCoordinate, hocrWords);
-      console.log(words + " a word");
 
-      if($inputField.attr("type") == "number"){
+      if($inputField.attr("type") == "number") {
         words = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
-      } else if($inputField.attr("type") == "date") {
+      } 
+      else if($inputField.attr("type") == "date") {
         var date = new Date(/.*\d{4}/.exec(words)[0]);
         words = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
       }
@@ -129,6 +131,7 @@ $(document).ready( function() {
 
   function findWords(start, end, wordsSet){
     var wordsArray = [];
+    console.log("end x = " + end.x + " start x = "+ start.x);
     $.each(wordsSet, function(index, infoArray){
       if (infoArray[0] > end.x) return wordsArray;
       if (infoArray[0] >= start.x && infoArray[0] <= end.x){
