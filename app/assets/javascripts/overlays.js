@@ -8,12 +8,6 @@ $(document).ready( function() {
   var description = "";
   var $ocrx_word = $('.ocrx_word');
 
-  $ocrx_word.addClass('transparent');
-
-  $img.on("dragstart", function() {
-    return false;
-  });
-
   function getMousePos(e, $pageDiv) {
     var w = $(window);
     var pos = {
@@ -22,6 +16,34 @@ $(document).ready( function() {
     };
     return pos;
   }
+
+  function prepareWords(className) {
+    var prepWords = [];
+    $("." + className).find(".ocrx_word").each(function(index, el) {
+      prepWords.push([+$(el).css("left").slice(0,-2),+$(el).css("top").slice(0,-2), $(el).text()]);
+    });
+    return prepWords;
+  }
+
+  function findWords(start, end, wordsSet) {
+    var wordsArray = [];
+    console.log("end x = " + end.x + " start x = "+ start.x);
+    $.each(wordsSet, function(index, infoArray) {
+      if (infoArray[0] > end.x) return wordsArray;
+      if (infoArray[0] >= start.x && infoArray[0] <= end.x) {
+        if (infoArray[1] >= start.y && infoArray[1] <= end.y) {
+          wordsArray.push(infoArray[2]); 
+        }
+      }
+    }); 
+    return wordsArray.join(" ");   
+  }
+
+  $ocrx_word.addClass('transparent');
+
+  $img.on("dragstart", function() {
+    return false;
+  });
 
   $highlighter.on("click", function() {
     boxColor = $(this).attr("class").split(" ")[1];
@@ -63,36 +85,36 @@ $(document).ready( function() {
       if (overlays.length > 0) {overlays.pop().remove()}
       overlays.push($overlay);  
     })
-    .on("mouseup", function(){  
+    .on("mouseup", function() {  
       var $this = $(this);
       $this.unbind("mousemove");
       $(".flag").find(".x-out").removeClass("hidden");
-      $(".x-out").on("click", function(){
+      $(".x-out").on("click", function() {
         $(this).parent().remove();
       });
       
       var pageClass = $this.attr("class").split(" ")[1];
       var hocrWords = prepareWords(pageClass);
-      console.log(words);
       var $inputField = $("#"+boxColor);
       var words = findWords(startCoordinate, endCoordinate, hocrWords);
+      console.log(words);
 
-      if($inputField.attr("type") == "number") {
-        words = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
-      } 
-      else if($inputField.attr("type") == "date") {
-        var date = new Date(/.*\d{4}/.exec(words)[0]);
-        words = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
-      }
-      if(words){
+      // if($inputField.attr("type") == "number") {
+      //   words = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
+      // } 
+      // else if($inputField.attr("type") == "date") {
+      //   var date = new Date(/.*\d{4}/.exec(words)[0]);
+      //   words = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
+      // }
+      if(words) {
         $inputField.val(words);
       }
     });
     
   });
   
-  $('body').on("click", function(e){
-    if(e.target.nodeName === "INPUT"){
+  $('body').on("click", function(e) {
+    if(e.target.nodeName === "INPUT") {
       $(".flag").find(".x-out").addClass("hidden");
       $(".flag").removeClass("flag");
       var flagClass = e.target.id;
@@ -103,44 +125,5 @@ $(document).ready( function() {
       $('.flag').removeClass('flag');
     }
   });
-
-  $('.hocr_toggle').on("click", function(){
-    if ($ocrx_word.hasClass('transparent')){
-      $ocrx_word.removeClass('transparent');
-    }else{
-      $ocrx_word.addClass('transparent');
-    }
-  });
-
-  $ocrx_word.on("click", function(e){
-    var $this = $(this);
-    if ($this.hasClass('transparent')){
-      $this.removeClass('transparent');
-    }else{
-      $this.addClass('transparent');
-      }
-  });
-  
-  function prepareWords(className){
-    var prepWords = [];
-    $("." + className).find(".ocrx_word").each(function(index, el){
-      prepWords.push([+$(el).css("left").slice(0,-2),+$(el).css("top").slice(0,-2), $(el).text()]);
-    });
-    return prepWords;
-  }
-
-  function findWords(start, end, wordsSet){
-    var wordsArray = [];
-    console.log("end x = " + end.x + " start x = "+ start.x);
-    $.each(wordsSet, function(index, infoArray){
-      if (infoArray[0] > end.x) return wordsArray;
-      if (infoArray[0] >= start.x && infoArray[0] <= end.x){
-        if (infoArray[1] >= start.y && infoArray[1] <= end.y){
-          wordsArray.push(infoArray[2]); 
-        }
-      }
-    }); 
-    return wordsArray.join(" ");   
-  }
     
 });
