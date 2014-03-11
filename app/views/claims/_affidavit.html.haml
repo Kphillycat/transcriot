@@ -2,7 +2,29 @@
   
   %label Affidavit
   %br
+  %input{:id=>"incident_address", :type=>"text", :name=>"claim[incident_address]", :value=>@claim.incident_address}
+  %span.highlighter.incident_address
+    %label{:for=>"incident_address"} Incident Address
+  %br
+  %input{:id=>"incident_address_type", :type=>"text", :name=>"claim[incident_address_type]", :value=>@claim.incident_address_type}
+  %span.highlighter.incident_address_type
+    %label{:for=>"incident_address_type"} Incident Address Type
+  %br
   %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
   %span.highlighter.claim_date
-    %label{:for=>"claim_date"} Claim Date
+    %label{:for=>"claim_date"} Affidavit Date
   %br
+  %input{:id=>"person_name", :type=>"text", :name=>"claim[people][0][name]"}
+  %span.highlighter.claimant_name
+    %label{:for=>"person_name"} Person Name
+  %br
+  %select{:id=>"person_role", :name=>"claim[people][0][role]"}
+    %option{:value=>"witness"} Witness
+    %option{:value=>"notary"} Notary
+    %option{:value=>"lawyer"} Lawyer
+  %span.highlighter
+    %label{:for=>"person_role"} Person Role
+  %br
+  %input{:id=>"paragraph", :type=>"textarea", :name=>"claim[affidavit]", :value=>@claim.affidavit}
+  %span.highlighter
+    %label{:for=>"paragraph text"} Paragaph Text

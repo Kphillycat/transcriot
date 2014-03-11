@@ -22,14 +22,6 @@
   %span.highlighter.record_number
     %label{:for=>"record_number"} Claim Record Number
   %br
-  %input{:id=>"incident_address", :type=>"text", :name=>"claim[incident_address]", :value=>@claim.incident_address}
-  %span.highlighter.incident_address
-    %label{:for=>"incident_address"} Incident Address
-  %br
-  %input{:id=>"incident_address_type", :type=>"text", :name=>"claim[incident_address_type]", :value=>@claim.incident_address_type}
-  %span.highlighter.incident_address_type
-    %label{:for=>"incident_address_type"} Incident Address Type
-  %br
   %input{:id=>"total_claimed", :type=>"number", :name=>"claim[total_claimed]", :step=>"0.01", :value=>@claim.total_claimed}
   %span.highlighter.total_claimed
     %label{:for=>"total_claimed"} Total Claimed

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303214704) do
+ActiveRecord::Schema.define(version: 20140311154510) do
 
   create_table "claim_examiners", force: true do |t|
     t.integer "claim_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140303214704) do
     t.string  "incident_address_type"
     t.float   "total_claimed"
     t.float   "total_awarded"
+    t.text    "affidavit"
   end
 
   create_table "damages", force: true do |t|
