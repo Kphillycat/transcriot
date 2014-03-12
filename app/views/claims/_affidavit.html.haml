@@ -25,6 +25,6 @@
   %span.highlighter
     %label{:for=>"person_role"} Person Role
   %br
-  %input{:id=>"paragraph", :type=>"textarea", :name=>"claim[affidavit]", :value=>@claim.affidavit}
-  %span.highlighter
-    %label{:for=>"paragraph text"} Paragaph Text
+  %input{:id=>"affidavit_text", :type=>"textarea", :name=>"claim[affidavit]", :value=>@claim.affidavit}
+  %span.highlighter.affidavit_text
+    %label{:for=>"affidavit_text"} Affidavit Text

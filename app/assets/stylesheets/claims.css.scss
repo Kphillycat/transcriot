@@ -193,6 +193,10 @@ img{
 	@include highlighter-background(30, 144, 255);
 }
 
-.letter_text{
+.letter_text, .affidavit_text, .testimony_text, .report_text{
+	@include highlighter-background(255, 255, 255);	
+}
+
+.lavender{
 	@include highlighter-background(203, 144, 255);
 }
