@@ -5,6 +5,7 @@
 body{
 	font-family: 'Istok Web', sans-serif;
 	background: url("http://api.thumbr.it/whitenoise-361x370.png?background=136e66ff&noise=0b4f48&density=15&opacity=57");
+	margin: 0px;
 }
 
 input{
@@ -18,7 +19,7 @@ form{
 	display: inline-block;
 	position: relative;
 	height: 100%;
-	width: 45%;
+	width: 43%;
 }
 
 .transcript{
@@ -27,7 +28,7 @@ form{
 	padding-bottom: 200px;
 	position: fixed;
 	overflow: scroll;
-	width: 45%; 
+	width: 43%; 
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -45,7 +46,7 @@ form{
 	
 	font-size: 1.3em;
 	margin-left: 40px;
-	margin-right: 30px;
+	margin-right: 27px;
 	input{
 		font-size: 16px;
 		padding: 4px;
