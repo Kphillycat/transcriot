@@ -1,5 +1,4 @@
-%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"letter hidden"}
-  
+.letter.hidden
   %label Letter to the Comptroller
   %br
   %input{:id=>"claimant_name", :type=>"text", :name=>"person[name]", :value=>@claim.claimant_attr("name")}

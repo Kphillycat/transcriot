@@ -36,10 +36,13 @@ form{
 }
 
 .form-div{
-	border: 2px solid tan;
-	border-top: none;
-	padding-bottom: 20px;
-	padding-left: 20px;
+	& div{
+		border: 2px solid tan;
+		border-top: none;
+		padding-bottom: 20px;
+		padding-left: 20px;
+	}
+	
 	font-size: 1.3em;
 	margin-left: 40px;
 	margin-right: 30px;

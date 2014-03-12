@@ -41,6 +41,10 @@
     examiner.save
   end
 
+  def update_damages(damages_params)
+    
+  end
+
   def first_examiner_attr(attribute)
     self.examiners.first.send(attribute.to_sym) if self.examiners.first
   end

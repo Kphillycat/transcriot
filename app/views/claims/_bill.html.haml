@@ -1,5 +1,4 @@
-%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"bill hidden"}
-  
+.bill.hidden  
   %label Bill/Inventory
   %br
   %label Damage
@@ -48,5 +47,3 @@
     %br
     - form_authenticity_token
     %input{:name=>"authenticity_token", :type=>"hidden", :value=>form_authenticity_token} 
-
-    %button{:type=>"submit", :value=>"submit"} Transcribe!

@@ -12,12 +12,18 @@
           %li.report Examiner's Report
 
       .form-div
-        =render :partial => "general"
-        =render :partial => "letter"
-        =render :partial => "bill"
-        =render :partial => "affidavit"
-        =render :partial => "testimony"
-        =render :partial => "examiners_report"
+        %form{:action=>"/claims/#{params[:id]}", :method=>"post"}
+          =render :partial => "general"
+          =render :partial => "letter"
+          =render :partial => "bill"
+          =render :partial => "affidavit"
+          =render :partial => "testimony"
+          =render :partial => "examiners_report"
+
+          - form_authenticity_token
+          %input{:name=>"authenticity_token", :type=>"hidden", :value=>form_authenticity_token} 
+
+          %button{:type=>"submit", :value=>"submit"} Transcribe!
         
   .transcribe-image-holder
     - Claim.find(params[:id]).hocr_layers.each do |current_hocr|

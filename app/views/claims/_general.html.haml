@@ -1,5 +1,4 @@
-%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"general"}
-  
+.general 
   %label Claim Overview
   %br
   %input{:id=>"claimant_name", :type=>"text", :name=>"person[name]", :value=>@claim.claimant_attr("name")}
@@ -52,11 +51,6 @@
     %span.highlighter.end_page_number
       %label{:for=>"end_page_number"} End Page Number
   %br
-
-  - form_authenticity_token
-  %input{:name=>"authenticity_token", :type=>"hidden", :value=>form_authenticity_token} 
-
-  %button{:type=>"submit", :value=>"submit"} Transcribe!
 
 / Document Number
 / Page Number

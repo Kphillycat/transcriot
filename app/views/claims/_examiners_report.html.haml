@@ -1,4 +1,4 @@
-%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"report hidden"}  
+.report.hidden 
   %label Examiner's Report
   %br
   - @claim.examiners.each_with_index do |examiner,index| 
