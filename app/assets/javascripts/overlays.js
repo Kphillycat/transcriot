@@ -7,7 +7,8 @@ $(document).ready( function() {
   var boxColor = "";
   var description = "";
   var $ocrx_word = $('.ocrx_word');
-  var overlays = [];
+  var startCoordinate;
+  var endCoordinate;
 
   function getMousePos(e, $pageDiv) {
     var w = $(window);
@@ -15,8 +16,7 @@ $(document).ready( function() {
       x: e.pageX - $pageDiv.offset().left,
       y: e.pageY - $pageDiv.offset().top
     };
-    console.log(pos.x + ", " + pos.y);
-    console.log("pos is defined " + pos);
+    console.log("moving");
     return pos;
   }
 
@@ -30,7 +30,6 @@ $(document).ready( function() {
 
   function findWords(start, end, wordsSet) {
     var wordsArray = [];
-    console.log("end x = " + end.x + " start x = "+ start.x);
     $.each(wordsSet, function(index, infoArray) {
       if (infoArray[0] > end.x) return wordsArray;
       if (infoArray[0] >= start.x && infoArray[0] <= end.x) {
@@ -57,42 +56,40 @@ $(document).ready( function() {
     boxColor = $(this).next("span").attr("class").split(" ")[1];
     description = $(this).next("span").text().trim();
   });
-  var temp;
+
   $imgDiv.on("mousedown input:not('.overlay')", function(e) {
-    var temp = getMousePos(e, $(this));
-    var endCoordinate;
-    console.log("here: " + startCoordinate);
-    
-  })
-  .on("mousemove", {value: temp}, function(e) {
-    var $this = $(this);
-    console.log(e.data.value);
-    debugger
-    var startCoordinate = e.data.value;
-    endCoordinate = getMousePos(e, $this);
-    $("#"+boxColor).focus();
+    console.log(e);
+    startCoordinate = getMousePos(e, $(this));
+    var overlays = [];
+  
+    $(this).on("mousemove", function(event) {
+      console.log(event);
+      var $this = $(this);
+      endCoordinate = getMousePos(event, $this);
+      $("#"+boxColor).focus();
 
-    var $overlay = $("<div class='overlay' title='" + description + "'><div class='x-out hidden'><span class='x-in'>x</span></div></div>").appendTo($this);
-    $(".flag").not($overlay).removeClass("flag").find(".x-out").addClass("hidden");
-    $overlay.attr("id","box"+startCoordinate.y+startCoordinate.x)
-            .css("top", Math.min(startCoordinate.y, endCoordinate.y))
-            .css("left", Math.min(startCoordinate.x, endCoordinate.x))
-            .css("height", Math.abs(endCoordinate.y - startCoordinate.y))
-            .css("width", Math.abs(endCoordinate.x - startCoordinate.x))
-            .addClass(boxColor)
-            .addClass("flag")
-            .on('click', function(e) {
-              var currentClass = $(this).attr("class").split(" ")[1];
-              $("#"+currentClass).focus();
-              $(".flag").find(".x-out").addClass("hidden");
-              $(".flag").removeClass("flag");
-              $(this).addClass("flag").find(".x-out").removeClass("hidden");
-            });
+      var $overlay = $("<div class='overlay' title='" + description + "'><div class='x-out hidden'><span class='x-in'>x</span></div></div>").appendTo($this);
+      $(".flag").not($overlay).removeClass("flag").find(".x-out").addClass("hidden");
+      $overlay.attr("id","box"+startCoordinate.y+startCoordinate.x)
+              .css("top", Math.min(startCoordinate.y, endCoordinate.y))
+              .css("left", Math.min(startCoordinate.x, endCoordinate.x))
+              .css("height", Math.abs(endCoordinate.y - startCoordinate.y))
+              .css("width", Math.abs(endCoordinate.x - startCoordinate.x))
+              .addClass(boxColor)
+              .addClass("flag")
+              .on('click', function(e) {
+                var currentClass = $(this).attr("class").split(" ")[1];
+                $("#"+currentClass).focus();
+                $(".flag").find(".x-out").addClass("hidden");
+                $(".flag").removeClass("flag");
+                $(this).addClass("flag").find(".x-out").removeClass("hidden");
+              });
 
-    if (overlays.length > 0) {overlays.pop().remove()}
-    overlays.push($overlay);  
+      if (overlays.length > 0) {overlays.pop().remove()}
+      overlays.push($overlay);  
+    });
   })
-  .on("mouseup", function(e, startCoordinate) {  
+  .on("mouseup", {start: startCoordinate, end: endCoordinate}, function(e) {  
     var $this = $(this);
     $this.unbind("mousemove");
     $(".flag").find(".x-out").removeClass("hidden");
@@ -102,19 +99,20 @@ $(document).ready( function() {
     
     var pageClass = $this.attr("class").split(" ")[1];
     var hocrWords = prepareWords(pageClass);
+    var wordString;
     var $inputField = $("#"+boxColor);
     var words = findWords(startCoordinate, endCoordinate, hocrWords);
     console.log(words);
 
     if($inputField.attr("type") == "number") {
-      words = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
+      wordString = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
     } 
     else if($inputField.attr("type") == "date") {
       var date = new Date(/.*\d{4}/.exec(words)[0]);
-      words = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
+      wordString = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
     }
-    if(words) {
-      $inputField.val(words);
+    if(wordString) {
+      $inputField.val(wordString);
     }
   });
   
