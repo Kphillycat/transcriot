@@ -1,8 +1,49 @@
 %form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"bill hidden"}
   
-  %label Bill
+  %label Bill 
   %br
-  %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
-  %span.highlighter.claim_date
-    %label{:for=>"claim_date"} Claim Date
+  %label Damage
   %br
+  %input{:id=>"damage_description", :type=>"text", :name=>"damage[description]"}
+    %span.highlighter.damage_description
+      %label{:for=>"damage_description"} Description
+    %br
+    %input{:id=>"damage_quantity", :type=>"number", :name=>"damage[quantity]"}
+    %span.highlighter.damage_quantity
+      %label{:for=>"damage_quantity"} Quantity
+    %input{:id=>"damage_unit", :type=>"text", :name=>"damage[unit]"}
+    %span.highlighter.damage_unit
+      %label{:for=>"damage_unit"} Unit
+    %br
+    %input{:id=>"damage_cost", :type=>"number", :step=>"0.01", :name=>"damage[total_cost]"}
+    %span.highlighter.damage_cost
+      %label{:for=>"damage_cost"} Total Cost
+    %br
+    %span.highlighter
+      %label{:for=>"damage_overcharge"} Overcharged?
+    %input{:id=>"damage_overcharge", :type=>"checkbox", :name=>"damage[overcharge]"}   
+    %br
+  - @claim.damages.each_with_index do |damage, index|
+    %label 
+    = "Damage ##{index+1}" 
+    %br
+    %input{:id=>"damage_description", :type=>"text", :name=>"damage[description]", :value=>damage.description}
+    %span.highlighter.damage_description
+      %label{:for=>"damage_description"} Description
+    %br
+    %input{:id=>"damage_quantity", :type=>"number", :name=>"damage[quantity]", :value=>damage.quantity}
+    %span.highlighter.damage_quantity
+      %label{:for=>"damage_quantity"} Quantity
+    %input{:id=>"damage_unit", :type=>"text", :name=>"damage[unit]", :value=>damage.unit}
+    %span.highlighter.damage_unit
+      %label{:for=>"damage_unit"} Unit
+    %br
+    %input{:id=>"damage_cost", :type=>"number", :step=>"0.01", :name=>"damage[total_cost]", :value=>damage.total_cost}
+    %span.highlighter.damage_cost
+      %label{:for=>"damage_cost"} Total Cost
+    %br
+    %span.highlighter
+      %label{:for=>"damage_overcharge"} Overcharged?
+    %input{:id=>"damage_overcharge", :type=>"checkbox", :name=>"damage[overcharge]", :value=>damage.overcharge?}   
+    %br
+    / Constant running total

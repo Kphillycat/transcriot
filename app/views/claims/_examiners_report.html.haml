@@ -1,8 +1,16 @@
-%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"report hidden"}
-  
+%form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"report hidden"}  
   %label Examiner's Report
   %br
-  %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
-  %span.highlighter.claim_date
-    %label{:for=>"claim_date"} Claim Date
-  %br
+  - @claim.examiners.each_with_index do |examiner,index| 
+    %input{:id=>"examiner_name", :type=>"text", :name=>"examiner[index][name]", :value=>examiner.name}
+    %span.highlighter.examiner_name
+      %label{:for=>"examiner_name"} Examiner Name
+    %br
+  %input{:id=>"examiner_name", :type=>"text", :name=>"examiner[0][name]"}
+    %span.highlighter.examiner_name
+      %label{:for=>"examiner_name"} Examiner Name
+    %br
+  %input{:id=>"report_text", :type=>"text", :name=>"claim[report]", :value=>@claim.report}
+    %span.highlighter.report_text
+      %label{:for=>"report_text"} Report
+    %br
