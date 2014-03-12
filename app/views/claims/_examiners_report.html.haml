@@ -1,16 +1,16 @@
 .report.hidden 
   %label Examiner's Report
   %br
-  %input{:id=>"race", :type=>"text", :name=>"person[race]", :value=>@claim.claimant_attr("race")}
+  %input{:id=>"race", :type=>"text", :name=>"people[claimant][race]", :value=>@claim.claimant_attr("race")}
   %span.highlighter.race
     %label{:for=>"race"} Claimant Race
   %br
-  - @claim.examiners.each_with_index do |examiner,index| 
-    %input{:id=>"examiner_name", :type=>"text", :name=>"examiner[index][name]", :value=>examiner.name}
-    %span.highlighter.examiner_name
-      %label{:for=>"examiner_name"} Examiner Name
-    %br
-  %input{:id=>"examiner_name", :type=>"text", :name=>"examiner[0][name]"}
+  / - @claim.examiners.each_with_index do |examiner,index| 
+  /   %input{:id=>"examiner_name", :type=>"text", :name=>"examiners[#{index+1}][name]", :value=>examiner.name}
+  /   %span.highlighter.examiner_name
+  /     %label{:for=>"examiner_name"} Examiner Name
+  /   %br
+  %input{:id=>"examiner_name", :type=>"text", :name=>"examiners[0][name]"}
     %span.highlighter.examiner_name
       %label{:for=>"examiner_name"} Examiner Name
     %br

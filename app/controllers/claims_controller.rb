@@ -27,11 +27,13 @@ class ClaimsController < ApplicationController
   end
 
   def update
-    # claim = Claim.find(params[:id]) 
-    # claim.update_attributes(params[:claim])
-    # claim.update_claimant(person_params)
-    # claim.update_examiner(examiner_params)
-    # claim.update_damages(damages_params)
+    claim = Claim.find(params[:id]) 
+    claim.update_attributes(claim_params)
+    claim.update_claimant(claimant_params)
+    claim.update_people(affidavit_params, testimony_params)
+    claim.update_examiner(examiner_params)
+    claim.update_damages(damages_params)
+
 
     render 'diagnostics'
   end
@@ -40,15 +42,23 @@ class ClaimsController < ApplicationController
     params.require(:claim).permit(:claim_date, :incident_date, :resolution_date, :claim_number, :record_number, :incident_address, :incident_address_type, :total_claimed, :total_awarded, :examiners)
   end
 
-  def person_params
-    params.require(:person).permit(:name, :previous_address, :current_address, :role, :gender, :race, :claim_id)
+  def claimant_params
+    params.require(:people).require(:claimant).permit(:name, :previous_address, :current_address, :role, :gender, :race, :claim_id)
+  end
+
+  def affidavit_params
+    params.require(:people).permit(:affidavit => [:name, :role])
+  end
+
+  def testimony_params
+    params.require(:people).permit(:testimony => [:name, :role])
   end
 
   def examiner_params
-    params.require(:examiner).permit(:id, :name, :claims)
+    params.permit(:examiners => [:name])
   end
 
   def damages_params
-    params.require(:damages).permit(:description, :quantity, :unit, :total_cost)
+    params.permit(:damages => [:description, :quantity, :unit, :total_cost])
   end
 end
