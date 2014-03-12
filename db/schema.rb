@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312160946) do
+ActiveRecord::Schema.define(version: 20140312174500) do
 
   create_table "claim_examiners", force: true do |t|
     t.integer "claim_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140312160946) do
   create_table "hocr_layers", force: true do |t|
     t.string  "filename"
     t.integer "image_id"
+    t.integer "page_number"
   end
 
   create_table "hocr_lines", force: true do |t|
@@ -67,8 +68,7 @@ ActiveRecord::Schema.define(version: 20140312160946) do
   end
 
   create_table "images", force: true do |t|
-    t.string  "filename"
-    t.integer "page_number"
+    t.string "filename"
   end
 
   create_table "people", force: true do |t|
