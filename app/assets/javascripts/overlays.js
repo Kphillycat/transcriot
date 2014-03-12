@@ -11,7 +11,6 @@ $(document).ready( function() {
   var endCoordinate;
 
   function getMousePos(e, $pageDiv) {
-    var w = $(window);
     var pos = {
       x: e.pageX - $pageDiv.offset().left,
       y: e.pageY - $pageDiv.offset().top
