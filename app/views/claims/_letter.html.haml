@@ -1,14 +1,15 @@
 .letter.hidden
   %label Letter to the Comptroller
   %br
-  %input{:id=>"claimant_name", :type=>"text", :name=>"person[name]", :value=>@claim.claimant_attr("name")}
+  %input{:id=>"claimant_name", :type=>"text", :name=>"people[claimant][name]", :value=>@claim.claimant_attr("name")}
   %span.highlighter.claimant_name
     %label{:for=>"claimant_name"} Claimant Name
   %br
-  %input{:id=>"record_number", :type=>"number", :name=>"claim[record_number]", :value=>@claim.record_number}
-  %span.highlighter.record_number
-    %label{:for=>"record_number"} Record Number
+  %input{:id=>"gender", :type=>"text", :name=>"people[claimant][gender]", :value=>@claim.claimant_attr("gender")}
+  %span.highlighter.gender
+    %label{:for=>"gender"} Gender
   %br
+  
   %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
   %span.highlighter.claim_date
     %label{:for=>"claim_date"} Claim Date
@@ -17,9 +18,15 @@
   %span.highlighter.incident_date
     %label{:for=>"incident_date"} Incident Date
   %br
-  %input{:id=>"incident_address", :type=>"text", :name=>"claim[incident_address]", :value=>@claim.incident_address}
-    %span.highlighter.incident_address
-      %label{:for=>"incident_address"} Incident Address
+  %input{:id=>"previous_address", :type=>"text", :name=>"people[claimant][previous_address]", :value=>@claim.claimant_attr("previous_address")}
+  %span.highlighter.previous_address
+    %label{:for=>"previous_address"} Previous Address
+  %br
+  %input{:id=>"current_address", :type=>"text", :name=>"people[claimant][current_address]", :value=>@claim.claimant_attr("current_address")}
+  %span.highlighter.current_address
+    %label{:for=>"current_address"} Current Address
+  %br
+
   %br
   %br
   %span.highlighter.letter_text

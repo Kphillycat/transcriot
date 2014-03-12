@@ -34,6 +34,7 @@ class ClaimsController < ApplicationController
     claim.update_examiner(examiner_params)
     claim.update_damages(damages_params)
 
+
     render 'diagnostics'
   end
 

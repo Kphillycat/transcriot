@@ -1,11 +1,11 @@
 .testimony.hidden 
   %label Testimony
   %br
-  %input{:id=>"person_name", :type=>"text", :name=>"claim[people][0][name]"}
+  %input{:id=>"person_name", :type=>"text", :name=>"people[testimony][0][name]"}
   %span.highlighter.claimant_name
     %label{:for=>"person_name"} Person Name
   %br
-  %select{:id=>"person_role", :name=>"claim[people][0][role]"}
+  %select{:id=>"person_role", :name=>"people[testimony][0][role]"}
     %option{:value=>"witness"} Witness
     %option{:value=>"notary"} Notary
     %option{:value=>"lawyer"} Lawyer

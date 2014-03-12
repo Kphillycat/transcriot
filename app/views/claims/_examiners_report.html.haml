@@ -1,15 +1,26 @@
 .report.hidden 
   %label Examiner's Report
   %br
-  - @claim.examiners.each_with_index do |examiner,index| 
-    %input{:id=>"examiner_name", :type=>"text", :name=>"examiner[index][name]", :value=>examiner.name}
+  %input{:id=>"race", :type=>"text", :name=>"people[claimant][race]", :value=>@claim.claimant_attr("race")}
+  %span.highlighter.race
+    %label{:for=>"race"} Claimant Race
+  %br
+  / - @claim.examiners.each_with_index do |examiner,index| 
+  /   %input{:id=>"examiner_name", :type=>"text", :name=>"examiners[#{index+1}][name]", :value=>examiner.name}
+  /   %span.highlighter.examiner_name
+  /     %label{:for=>"examiner_name"} Examiner Name
+  /   %br
+  %input{:id=>"examiner_name", :type=>"text", :name=>"examiners[0][name]"}
     %span.highlighter.examiner_name
       %label{:for=>"examiner_name"} Examiner Name
     %br
-  %input{:id=>"examiner_name", :type=>"text", :name=>"examiner[0][name]"}
-    %span.highlighter.examiner_name
-      %label{:for=>"examiner_name"} Examiner Name
+  %span.highlighter
+    %label{:for=>"claim_overcharge"}Does the examiner think 
     %br
+    this claim is overcharged?
+  %input{:id=>"claim_overcharge", :type=>"checkbox", :name=>"claim[overcharge]"}   
+  %br
+
   %br
   %span.highlighter.report_text
     %label{:for=>"report_text"} Report
