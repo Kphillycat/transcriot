@@ -1,8 +1,8 @@
 $(document).ready( function() {
 
   var $imgDiv = $(".page-img");
-  var imgDivOffset = $imgDiv.offset();
   var $img = $imgDiv.find("img");
+  var imgDivOffset = $imgDiv.offset();
   var $highlighter = $(".highlighter");
   var boxColor = "";
   var description = "";
@@ -99,20 +99,24 @@ $(document).ready( function() {
     
     var pageClass = $this.attr("class").split(" ")[1];
     var hocrWords = prepareWords(pageClass);
-    var wordString;
     var $inputField = $("#"+boxColor);
     var words = findWords(startCoordinate, endCoordinate, hocrWords);
     console.log(words);
 
     if($inputField.attr("type") == "number") {
-      wordString = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
+      if(/\d+,?\d+\s\d{2}/.exec(words)) {
+        words = +/\d+,?\d+\s\d{2}/.exec(words)[0].replace(",","").replace(" ",".");
+      }
+      else {
+        words = +/\d+/.exec(words)[0];
+      }
     } 
     else if($inputField.attr("type") == "date") {
       var date = new Date(/.*\d{4}/.exec(words)[0]);
-      wordString = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
+      words = date.getUTCFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
     }
-    if(wordString) {
-      $inputField.val(wordString);
+    if(words) {
+      $inputField.val(words);
     }
   });
   
