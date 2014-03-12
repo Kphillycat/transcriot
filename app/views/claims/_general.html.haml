@@ -2,6 +2,11 @@
   
   %label Claim Overview
   %br
+  %input{:id=>"claimant_name", :type=>"text", :name=>"person[name]", :value=>@claim.claimant_attr("name")}
+  %span.highlighter.claimant_name
+    %label{:for=>"claimant_name"} Claimant Name
+  %br
+  
   %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
   %span.highlighter.claim_date
     %label{:for=>"claim_date"} Claim Date
@@ -29,11 +34,7 @@
   %input{:id=>"total_awarded", :type=>"number", :name=>"claim[total_awarded]", :step=>"0.01", :value=>@claim.total_awarded}
   %span.highlighter.total_awarded
     %label{:for=>"total_awarded"} Total Awarded
-  %h2 About the examiner
-  %input{:id=>"examiner_id", :type=>"hidden", :name=>"examiner[id]", :value=>@claim.first_examiner_attr("id")}
-  %input{:id=>"examiner_name", :type=>"text", :name=>"examiner[name]", :value=>@claim.first_examiner_attr("name")}
-  %span.highlighter.examiner_name
-    %label{:for=>"examiner_name"} Examiner Name
+  
   %h2 About the claimant
   %input{:id=>"claimant_name", :type=>"text", :name=>"person[name]", :value=>@claim.claimant_attr("name")}
   %span.highlighter.claimant_name
