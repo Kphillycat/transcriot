@@ -2,7 +2,27 @@
   
   %label Letter to the Comptroller
   %br
+  %input{:id=>"claimant_name", :type=>"text", :name=>"person[name]", :value=>@claim.claimant_attr("name")}
+  %span.highlighter.claimant_name
+    %label{:for=>"claimant_name"} Claimant Name
+  %br
+  %input{:id=>"record_number", :type=>"number", :name=>"claim[record_number]", :value=>@claim.record_number}
+  %span.highlighter.record_number
+    %label{:for=>"record_number"} Record Number
+  %br
   %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
   %span.highlighter.claim_date
     %label{:for=>"claim_date"} Claim Date
+  %br
+  %input{:id=>"incident_date", :type=>"date", :name=>"claim[incident_date]", :value=>@claim.incident_date}
+  %span.highlighter.incident_date
+    %label{:for=>"incident_date"} Incident Date
+  %br
+  %input{:id=>"incident_address", :type=>"text", :name=>"claim[incident_address]", :value=>@claim.incident_address}
+    %span.highlighter.incident_address
+      %label{:for=>"incident_address"} Incident Address
+  %br
+  %input{:id=>"letter", :type=>"textarea", :name=>"claim[letter]"}
+    %span.highlighter.letter_text
+      %label{:for=>"Letter"} Letter
   %br
