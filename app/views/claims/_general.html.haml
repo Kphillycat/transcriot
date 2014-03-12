@@ -9,40 +9,14 @@
   %span.highlighter.record_number
     %label{:for=>"record_number"} Record Number
   %br
+  / %input{:id=>"resolution_date", :type=>"date", :name=>"claim[resolution_date]", :value=>@claim.resolution_date}
+  / %span.highlighter.resolution_date
+  /   %label{:for=>"resolution_date"} Resolution Date
+  / %br
 
-  %input{:id=>"resolution_date", :type=>"date", :name=>"claim[resolution_date]", :value=>@claim.resolution_date}
-  %span.highlighter.resolution_date
-    %label{:for=>"resolution_date"} Resolution Date
-  %br
-
-  %input{:id=>"total_awarded", :type=>"number", :name=>"claim[total_awarded]", :step=>"0.01", :value=>@claim.total_awarded}
-  %span.highlighter.total_awarded
-    %label{:for=>"total_awarded"} Total Awarded
-  
-  %h2 About the claimant
-  %input{:id=>"claimant_name", :type=>"text", :name=>"person[name]", :value=>@claim.claimant_attr("name")}
-  %span.highlighter.claimant_name
-    %label{:for=>"claimant_name"} Claimant Name
-  %br
-  %input{:id=>"previous_address", :type=>"text", :name=>"person[previous_address]", :value=>@claim.claimant_attr("previous_address")}
-  %span.highlighter.previous_address
-    %label{:for=>"previous_address"} Previous Address
-  %br
-  %input{:id=>"current_address", :type=>"text", :name=>"person[current_address]", :value=>@claim.claimant_attr("current_address")}
-  %span.highlighter.current_address
-    %label{:for=>"current_address"} Current Address
-  %br
-  %input{:id=>"role", :type=>"hidden", :name=>"person[role]", :value=>"claimant"}
-  %input{:id=>"claim_id", :type=>"hidden", :name=>"person[claim_id]", :value=> params[:id]}
-  %br
-  %input{:id=>"gender", :type=>"text", :name=>"person[gender]", :value=>@claim.claimant_attr("gender")}
-  %span.highlighter.gender
-    %label{:for=>"gender"} Gender
-  %br
-  %input{:id=>"race", :type=>"text", :name=>"person[race]", :value=>@claim.claimant_attr("race")}
-  %span.highlighter.race
-    %label{:for=>"race"} Race
-  %br
+  / %input{:id=>"total_awarded", :type=>"number", :name=>"claim[total_awarded]", :step=>"0.01", :value=>@claim.total_awarded}
+  / %span.highlighter.total_awarded
+  /   %label{:for=>"total_awarded"} Total Awarded
   %input{:id=>"start_page_number", :type=>"number", :value=>@claim.hocr_layers.first.page_number, :name=>"claim[start_page_number]"}
     %span.highlighter.start_page_number
       %label{:for=>"start_page_number"} Start Page Number
@@ -51,6 +25,13 @@
     %span.highlighter.end_page_number
       %label{:for=>"end_page_number"} End Page Number
   %br
+
+  
+  %input{:id=>"role", :type=>"hidden", :name=>"person[role]", :value=>"claimant"}
+  %input{:id=>"claim_id", :type=>"hidden", :name=>"person[claim_id]", :value=> params[:id]}
+  %br
+ 
+  
 
 / Document Number
 / Page Number

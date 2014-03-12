@@ -27,11 +27,11 @@ class ClaimsController < ApplicationController
   end
 
   def update
-    claim = Claim.find(params[:id]) 
-    claim.update_attributes(params[:claim])
-    claim.update_claimant(person_params)
-    claim.update_examiner(examiner_params)
-    claim.update_damages(damages_params)
+    # claim = Claim.find(params[:id]) 
+    # claim.update_attributes(params[:claim])
+    # claim.update_claimant(person_params)
+    # claim.update_examiner(examiner_params)
+    # claim.update_damages(damages_params)
 
     render 'diagnostics'
   end
