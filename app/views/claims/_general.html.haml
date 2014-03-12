@@ -15,10 +15,6 @@
   %span.highlighter.resolution_date
     %label{:for=>"resolution_date"} Resolution Date
   %br
-  %input{:id=>"claim_number", :type=>"number", :name=>"claim[claim_number]", :value=>@claim.claim_number}
-  %span.highlighter.claim_number
-    %label{:for=>"claim_number"} Claim Number
-  %br
 
   %input{:id=>"total_awarded", :type=>"number", :name=>"claim[total_awarded]", :step=>"0.01", :value=>@claim.total_awarded}
   %span.highlighter.total_awarded
@@ -48,12 +44,14 @@
   %span.highlighter.race
     %label{:for=>"race"} Race
   %br
-  - @claim.hocr_layers.each_with_index do |layer,index|
-    %input{:id=>"page_number", :type=>"number", :name=>"claim[hocr_layer][page_number]", :value=>layer.page_number}
-    %span.highlighter.page_number
-      %label{:for=>"page_number"} Page Number
-      = "(Page #{index + 1})"
-    %br
+  %input{:id=>"start_page_number", :type=>"number", :value=>@claim.hocr_layers.first.page_number, :name=>"claim[start_page_number]"}
+    %span.highlighter.start_page_number
+      %label{:for=>"start_page_number"} Start Page Number
+  %br
+  %input{:id=>"end_page_number", :type=>"number", :value=>@claim.hocr_layers.last.page_number, :name=>"claim[end_page_number]"}
+    %span.highlighter.end_page_number
+      %label{:for=>"end_page_number"} End Page Number
+  %br
 
   - form_authenticity_token
   %input{:name=>"authenticity_token", :type=>"hidden", :value=>form_authenticity_token} 

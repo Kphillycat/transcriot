@@ -22,6 +22,9 @@
     %span.highlighter.incident_address
       %label{:for=>"incident_address"} Incident Address
   %br
-  %input{:id=>"letter_text", :type=>"textarea", :name=>"claim[letter]"}
-    %span.highlighter.letter_text
-      %label{:for=>"letter_text"} Letter Text
+  %br
+  %span.highlighter.letter_text
+    %label{:for=>"letter_text"} Letter Text
+  %br
+  %textarea{:id=>"letter_text", :rows=>"10", :cols=>"29", :name=>"claim[letter]"}
+  
