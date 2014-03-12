@@ -1,9 +1,12 @@
 .general 
   %label Claim Overview
   %br
-  %input{:id=>"claimant_name", :type=>"text", :name=>"person[name]", :value=>@claim.claimant_attr("name")}
+  %input{:id=>"claimant_name", :type=>"text", :name=>"people[claimant][name]", :value=>@claim.claimant_attr("name")}
   %span.highlighter.claimant_name
     %label{:for=>"claimant_name"} Claimant Name
+  %br
+  %input{:id=>"role", :type=>"hidden", :name=>"people[claimant][role]", :value=>"claimant"}
+  %input{:id=>"claim_id", :type=>"hidden", :name=>"people[claimant][claim_id]", :value=> params[:id]}
   %br
   %input{:id=>"record_number", :type=>"number", :name=>"claim[record_number]", :value=>@claim.record_number}
   %span.highlighter.record_number
@@ -24,16 +27,3 @@
   %input{:id=>"end_page_number", :type=>"number", :value=>@claim.hocr_layers.last.page_number, :name=>"claim[end_page_number]"}
     %span.highlighter.end_page_number
       %label{:for=>"end_page_number"} End Page Number
-  %br
-
-  
-  %input{:id=>"role", :type=>"hidden", :name=>"person[role]", :value=>"claimant"}
-  %input{:id=>"claim_id", :type=>"hidden", :name=>"person[claim_id]", :value=> params[:id]}
-  %br
- 
-  
-
-/ Document Number
-/ Page Number
-/ Claimant Name
-/ Record Number

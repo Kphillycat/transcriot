@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312174500) do
+ActiveRecord::Schema.define(version: 20140312205903) do
 
   create_table "claim_examiners", force: true do |t|
     t.integer "claim_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140312174500) do
     t.text    "letter"
     t.text    "testimony"
     t.text    "report"
+    t.boolean "overcharge?"
   end
 
   create_table "damages", force: true do |t|
