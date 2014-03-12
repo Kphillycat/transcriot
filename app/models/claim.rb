@@ -43,7 +43,10 @@
   end
 
   def update_damages(damages_params)
-    
+    damages_params[:damages].each do |key, damage|
+      self.damages << Damage.create(damage)
+    end
+    self.save
   end
 
   def update_people(affidavit, testimony)

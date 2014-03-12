@@ -59,6 +59,6 @@ class ClaimsController < ApplicationController
   end
 
   def damages_params
-    params.require(:damages).permit(:description, :quantity, :unit, :total_cost)
+    params.permit(:damages => [:description, :quantity, :unit, :total_cost])
   end
 end
