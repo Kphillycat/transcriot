@@ -30,6 +30,9 @@ class ClaimsController < ApplicationController
     claim = Claim.find(params[:id]) 
     claim.update_attributes(params[:claim])
     claim.update_claimant(claimant_params)
+    people_params.each do |person|
+      claim.people << Person.create(person)
+    end
     debugger
     claim.update_examiner(examiner_params)
     claim.update_damages(damages_params)
@@ -43,11 +46,11 @@ class ClaimsController < ApplicationController
   end
 
   def claimant_params
-    params[:people][:claimant].require(:person).permit(:name, :previous_address, :current_address, :role, :gender, :race, :claim_id)
+    params.require(:people).require(:claimant).permit(:name, :previous_address, :current_address, :role, :gender, :race, :claim_id)
   end
 
-  def person_params
-    params[:people][:affidavit].require(:person).permit(:name, :previous_address, :current_address, :role, :gender, :race, :claim_id)
+  def people_params
+    params.require(:people).require(:affidavit).permit(:name, :previous_address, :current_address, :role, :gender, :race, :claim_id)
   end
 
   def examiner_params
