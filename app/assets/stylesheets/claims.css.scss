@@ -192,3 +192,7 @@ img{
 .race{
 	@include highlighter-background(30, 144, 255);
 }
+
+.paragraph{
+	@include highlighter-background(255, 255, 255);	
+}
