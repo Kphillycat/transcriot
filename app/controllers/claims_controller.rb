@@ -31,6 +31,8 @@ class ClaimsController < ApplicationController
     claim.update_attributes(params[:claim])
     claim.update_claimant(person_params)
     claim.update_examiner(examiner_params)
+    claim.update_damages(damages_params)
+
     render 'diagnostics'
   end
 
@@ -46,4 +48,7 @@ class ClaimsController < ApplicationController
     params.require(:examiner).permit(:id, :name, :claims)
   end
 
+  def damages_params
+    params.require(:damages).permit(:description, :quantity, :unit, :total_cost)
+  end
 end

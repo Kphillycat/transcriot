@@ -46,4 +46,7 @@
       %label{:for=>"damage_overcharge"} Overcharged?
     %input{:id=>"damage_overcharge", :type=>"checkbox", :name=>"damage[overcharge]", :value=>damage.overcharge?}   
     %br
-    / Constant running total
+    - form_authenticity_token
+    %input{:name=>"authenticity_token", :type=>"hidden", :value=>form_authenticity_token} 
+
+    %button{:type=>"submit", :value=>"submit"} Transcribe!
