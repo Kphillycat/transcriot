@@ -45,6 +45,16 @@
     
   end
 
+  def update_people(affidavit, testimony)
+    affidavit.each do |person|
+      self.people << Person.create(person)
+    end
+    testimony.each do |person|
+      self.people << Person.create(person)
+    end
+    self.save
+  end
+
   def first_examiner_attr(attribute)
     self.examiners.first.send(attribute.to_sym) if self.examiners.first
   end
