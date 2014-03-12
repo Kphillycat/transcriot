@@ -1,6 +1,6 @@
 %form{:action=>"/claims/#{params[:id]}", :method=>"post", :class=>"bill hidden"}
   
-  %label Bill 
+  %label Bill/Inventory
   %br
   %label Damage
   %br
@@ -27,19 +27,19 @@
     %label 
     = "Damage ##{index+1}" 
     %br
-    %input{:id=>"damage_description", :type=>"text", :name=>"damage[description]", :value=>damage.description}
-    %span.highlighter.damage_description
+    %input{:id=> "damage_description#{index+1}", :type=>"text", :name=>"damage[description]", :value=>damage.description}
+    %span{:class => "highlighter damage_description#{index+1}"}
       %label{:for=>"damage_description"} Description
     %br
-    %input{:id=>"damage_quantity", :type=>"number", :name=>"damage[quantity]", :value=>damage.quantity}
-    %span.highlighter.damage_quantity
+    %input{:id=>"damage_quantity#{index+1}", :type=>"number", :name=>"damage[quantity]", :value=>damage.quantity}
+    %span{:class => "highlighter damage_quantity#{index+1}"}
       %label{:for=>"damage_quantity"} Quantity
-    %input{:id=>"damage_unit", :type=>"text", :name=>"damage[unit]", :value=>damage.unit}
-    %span.highlighter.damage_unit
+    %input{:id=>"damage_unit#{index+1}", :type=>"text", :name=>"damage[unit]", :value=>damage.unit}
+    %span{:class => "highlighter damage_unit#{index+1}"}
       %label{:for=>"damage_unit"} Unit
     %br
-    %input{:id=>"damage_cost", :type=>"number", :step=>"0.01", :name=>"damage[total_cost]", :value=>damage.total_cost}
-    %span.highlighter.damage_cost
+    %input{:id=>"damage_cost#{index+1}", :type=>"number", :step=>"0.01", :name=>"damage[total_cost]", :value=>damage.total_cost}
+    %span{:class=>"highlighter damage_cost#{index+1}"}
       %label{:for=>"damage_cost"} Total Cost
     %br
     %span.highlighter
