@@ -30,15 +30,16 @@
   end
 
   def update_examiner(examiner_params)
-    unless examiner_params[:id].to_i == 0
-      examiner = Examiner.find(examiner_params[:id])
-      examiner.update_attributes(examiner_params)
-      examiner.claims << self unless self.examiners.include? examiner
-    else
-      examiner = Examiner.new(examiner_params)
-      examiner.claims << self
+    examiner_params[:examiners].each do |key, examiner|
+      examiner_obj = Examiner.find_by_name(examiner[:name])
+      if examiner_obj
+        examiner_obj.claims << self unless self.examiners.include? examiner_obj
+      else
+        examiner_obj = Examiner.new(examiner)
+        examiner_obj.claims << self
+      end
+      examiner_obj.save
     end
-    examiner.save
   end
 
   def update_damages(damages_params)
@@ -46,10 +47,10 @@
   end
 
   def update_people(affidavit, testimony)
-    affidavit.each do |person|
+    affidavit[:affidavit].each do |key, person|
       self.people << Person.create(person)
     end
-    testimony.each do |person|
+    testimony[:testimony].each do |key, person|
       self.people << Person.create(person)
     end
     self.save
