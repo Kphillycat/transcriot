@@ -6,15 +6,11 @@
   %span.highlighter.claimant_name
     %label{:for=>"claimant_name"} Claimant Name
   %br
-  
-  %input{:id=>"claim_date", :type=>"date", :name=>"claim[claim_date]", :value=>@claim.claim_date}
-  %span.highlighter.claim_date
-    %label{:for=>"claim_date"} Claim Date
+  %input{:id=>"record_number", :type=>"number", :name=>"claim[record_number]", :value=>@claim.record_number}
+  %span.highlighter.record_number
+    %label{:for=>"record_number"} Record Number
   %br
-  %input{:id=>"incident_date", :type=>"date", :name=>"claim[incident_date]", :value=>@claim.incident_date}
-  %span.highlighter.incident_date
-    %label{:for=>"incident_date"} Incident Date
-  %br
+
   %input{:id=>"resolution_date", :type=>"date", :name=>"claim[resolution_date]", :value=>@claim.resolution_date}
   %span.highlighter.resolution_date
     %label{:for=>"resolution_date"} Resolution Date
@@ -23,14 +19,7 @@
   %span.highlighter.claim_number
     %label{:for=>"claim_number"} Claim Number
   %br
-  %input{:id=>"record_number", :type=>"number", :name=>"claim[record_number]", :value=>@claim.record_number}
-  %span.highlighter.record_number
-    %label{:for=>"record_number"} Claim Record Number
-  %br
-  %input{:id=>"total_claimed", :type=>"number", :name=>"claim[total_claimed]", :step=>"0.01", :value=>@claim.total_claimed}
-  %span.highlighter.total_claimed
-    %label{:for=>"total_claimed"} Total Claimed
-  %br
+
   %input{:id=>"total_awarded", :type=>"number", :name=>"claim[total_awarded]", :step=>"0.01", :value=>@claim.total_awarded}
   %span.highlighter.total_awarded
     %label{:for=>"total_awarded"} Total Awarded
@@ -59,6 +48,13 @@
   %span.highlighter.race
     %label{:for=>"race"} Race
   %br
+  - @claim.hocr_layers.each_with_index do |layer,index|
+    %input{:id=>"page_number", :type=>"number", :name=>"claim[hocr_layer][page_number]", :value=>layer.page_number}
+    %span.highlighter.page_number
+      %label{:for=>"page_number"} Page Number
+      = "(Page #{index + 1})"
+    %br
+
   - form_authenticity_token
   %input{:name=>"authenticity_token", :type=>"hidden", :value=>form_authenticity_token} 
 
