@@ -2,10 +2,8 @@ Transcriot::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  root 'welcome#index'
+  root 'claims#index'
 
-  get '/claims' => 'claims#index'
-  get '/claims/:id' => 'claims#show', :as => 'claim'
   get '/claims/:id/edit' => 'claims#edit'
   post '/claims/:id' => 'claims#update'
 

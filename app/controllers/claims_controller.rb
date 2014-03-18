@@ -1,25 +1,19 @@
 class ClaimsController < ApplicationController
+
 	def index
-		@claims = Claim.all
-    # @claims.as_json{:include => :claimant}
-    respond_to do |format|
-      format.html
-      format.json do
-        render(:json => @claims.to_json(:include => [:people, :damages, :examiners]))
-      end
-    end
+	
 	end
 
-	def show
-		@claim = Claim.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.json do
-        render(:json => @claim.to_json(:include => [:people, :damages, :examiners]))
-      end
-    end
-    # render 'diagnostics'
-	end
+	# def show
+	# 	@claim = Claim.find(params[:id])
+ #    respond_to do |format|
+ #      format.html
+ #      format.json do
+ #        render(:json => @claim.to_json(:include => [:people, :damages, :examiners]))
+ #      end
+ #    end
+ #    # render 'diagnostics'
+	# end
 
 	def edit
 		@claim = Claim.find(params[:id]) 
@@ -35,7 +29,7 @@ class ClaimsController < ApplicationController
     claim.update_damages(damages_params)
 
 
-    render 'diagnostics'
+    redirect @claims
   end
 
   def claim_params
