@@ -2,17 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body{
+body{ 
 	font-family: 'Istok Web', sans-serif;
 	background: url("http://api.thumbr.it/whitenoise-361x370.png?background=136e66ff&noise=0b4f48&density=15&opacity=57");
 	margin: 0px;
 }
 
-input{
-	width: 40%;
+html, body{
+	height: 100%;
 }
 
-form{
+input{
+	width: 40%;
 }
 
 .spacer{
@@ -218,7 +219,19 @@ img{
 	@include highlighter-background(0, 0, 0);		
 }
 
-
 .lavender{
 	@include highlighter-background(203, 144, 255);
+}
+
+.torn-page{
+	margin: 5px;
+	display: inline-block;
+	width: 35%;
+	height: 100vh;
+	background: url("/torn_page.jpg") no-repeat;
+}
+
+.title-page{
+	margin: 5px;
+	display: inline-block;
 }
