@@ -7,7 +7,6 @@ $(document).ready(function() {
     $this.addClass("active");
     $(".form-div").find("div").addClass("hidden");
     $("form").find("." + form_type).removeClass("hidden");
-    console.log("I am here")
   });
 
 });

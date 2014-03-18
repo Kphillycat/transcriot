@@ -1,10 +1,6 @@
 .letter.hidden
   %label Letter to the Comptroller
   %br
-  %input{:id=>"claimant_name", :type=>"text", :name=>"people[claimant][name]", :value=>@claim.claimant_attr("name")}
-  %span.highlighter.claimant_name
-    %label{:for=>"claimant_name"} Claimant Name
-  %br
   %input{:id=>"gender", :type=>"text", :name=>"people[claimant][gender]", :value=>@claim.claimant_attr("gender")}
   %span.highlighter.gender
     %label{:for=>"gender"} Gender

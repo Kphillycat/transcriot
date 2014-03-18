@@ -138,7 +138,7 @@ img{
 	&.flag{ border: 2px solid rgba($r, $g, $b, 0.3);}
 }
 
-.claim_date{
+.claim_date, .affidavit_date{
 	@include highlighter-background(255, 105, 180);
 }
 
@@ -178,7 +178,7 @@ img{
 	@include highlighter-background(255, 127,  80);
 }
 
-.claimant_name{
+.claimant_name, .person_name_1, .person_name_1{
 	@include highlighter-background(255, 255,   0);
 }
 
