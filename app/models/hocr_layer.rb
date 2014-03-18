@@ -20,7 +20,7 @@ class HocrLayer < ActiveRecord::Base
 
   # opens hocr_layer file and calls method for modifications
   def modify_file
-    file_path = "./app/views/hocr_files/_p#{self.filename}_hocr.html"
+    file_path = "./app/views/hocr_files/_p#{self.filename}_hocr.html.erb"
     file = File.open(file_path, "r")
     data = file.read
     data = self.replace_bbox(data)
@@ -37,7 +37,7 @@ class HocrLayer < ActiveRecord::Base
   # links site version of image at the top of the hocr_layer file
   def add_image(data)
     regex = /(?<=ppageno\s0'>)/
-    data.gsub(regex) {"\n<img src='/page_images/#{self.filename}.jpg'>"}
+    data.gsub(regex) {"\n<%= image_tag 'page_images/#{self.filename}.jpg' %>"}
   end
 
   # identifies start of a claim and creates new claim object for each record number
