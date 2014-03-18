@@ -1,6 +1,8 @@
 // Place all the styles related to the claims controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(http://fonts.googleapis.com/css?family=Lusitana);
+@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
 
 body{ 
 	font-family: 'Istok Web', sans-serif;
@@ -229,9 +231,14 @@ img{
 	width: 35%;
 	height: 100vh;
 	background: url("/torn_page.jpg") no-repeat;
+	font-family: 'Lusitana'
+	h1 {
+		font-family: 'Cinzel Decorative', cursive;
+	}
 }
 
 .title-page{
 	margin: 5px;
 	display: inline-block;
 }
+
