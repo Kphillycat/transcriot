@@ -224,14 +224,16 @@ img{
 }
 
 .torn-page{
-	margin: 5px;
 	display: inline-block;
 	width: 35%;
-	height: 100vh;
+	height: 800px;
 	background: url("/torn_page.jpg") no-repeat;
 }
 
 .title-page{
-	margin: 5px;
 	display: inline-block;
+}
+
+.holder{
+	margin: auto;
 }
