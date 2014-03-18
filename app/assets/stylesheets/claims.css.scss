@@ -226,10 +226,9 @@ img{
 }
 
 .torn-page{
-	margin: 5px;
 	display: inline-block;
 	width: 35%;
-	height: 100vh;
+	height: 800px;
 	background: url("/torn_page.jpg") no-repeat;
 	font-family: 'Lusitana'
 	h1 {
@@ -238,7 +237,9 @@ img{
 }
 
 .title-page{
-	margin: 5px;
 	display: inline-block;
 }
 
+.holder{
+	margin: auto;
+}
