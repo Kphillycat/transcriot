@@ -28,5 +28,10 @@ task :claim_objects => :environment do
   HocrLayer.identify_claims
 end
 
-desc "run all those methods"
-task :hocr_everything, [:path] => [:environment, :run_ocrs, :hocr_objects, :claim_objects]
+desc "create hocr and ocr files: run locally"
+task :ocr, [:path] => [:environment, :run_ocrs]
+
+desc "fill database: run on heroku"
+task :database_objects => [:environment, :hocr_objects, :claim_objects]
+
+
