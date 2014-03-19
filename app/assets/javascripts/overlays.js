@@ -40,8 +40,6 @@ $(document).ready( function() {
     return wordsArray.join(" ");   
   }
 
-  $ocrx_word.addClass('transparent');
-
   $img.on("dragstart", function() {
     return false;
   });

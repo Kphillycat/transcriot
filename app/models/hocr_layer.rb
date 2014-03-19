@@ -30,8 +30,8 @@ class HocrLayer < ActiveRecord::Base
 
   # adds inline style coordinates to hocr words
   def replace_bbox(data)
-    regex = /(id='word_\d+')\stitle="\w{4}\s+(\d+)\s+(\d+)(\s+\d+){2}"/
-    data.gsub(regex) {"#{$1} style='left: #{$2.to_i/4}px\; top: #{$3.to_i/4}px\;'"}
+    regex = /class='ocrx_word'\s(id='word_\d+')\stitle="\w{4}\s+(\d+)\s+(\d+)(\s+\d+){2}"/
+    data.gsub(regex) {"class='ocrx_word transparent' #{$1} style='left: #{$2.to_i/4}px\; top: #{$3.to_i/4}px\;'"}
   end
 
   # links site version of image at the top of the hocr_layer file

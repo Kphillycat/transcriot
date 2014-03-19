@@ -13,12 +13,7 @@ $(document).ready( function() {
 
   $ocrx_word.on("click", function(e) {
     var $this = $(this);
-    if($this.hasClass('transparent')) {
-      $this.removeClass('transparent');
-    }
-    else {
-      $this.addClass('transparent');
-      }
+    $this.toggleClass('transparent');
   });
 
 });
