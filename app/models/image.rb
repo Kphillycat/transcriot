@@ -11,6 +11,7 @@ class Image < ActiveRecord::Base
     img_filenames.each do |file|
       system "tesseract #{File.join(path, file)} #{Rails.public_path}/ocr_files/#{file[0..-5]}_ocr -l eng"
       system "tesseract #{File.join(path, file)} #{Rails.public_path.to_s[0..-7]}app/views/hocr_files/_p#{file[0..-5]}_hocr -l eng hocr"
+      system "mv #{Rails.public_path.to_s[0..-7]}app/views/hocr_files/_p#{file[0..-5]}_hocr.html #{Rails.public_path.to_s[0..-7]}app/views/hocr_files/_p#{file[0..-5]}_hocr.html.erb"
     end
   end
 
