@@ -1,4 +1,4 @@
-$(document).ready( function() {
+$(window).load( function() {
 
   var $ocrx_word = $('.ocrx_word');
   
