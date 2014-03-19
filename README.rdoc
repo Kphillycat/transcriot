@@ -1,1 +1,2 @@
-A rails application for the transcription of Digital Archives. Run 'rake hocr_objects', 'rake claim_objects' then 'rail s' to see an example at http://localhost:3000/claims/1/edit
+A rails application for the transcription of Digital Archives. See demo at: http://transcriot.herokuapp.com/
+To run locally: 'rake db:migrate', 'rake database_objects' then 'rail s'
