@@ -3,7 +3,7 @@ desc "Crop tifs"
 task :crop_images do
 end
 
-desc "Make 1/5th size jpegs from cropped tifs and store in public/page_images"
+desc "Make 1/4th size jpegs from cropped tifs and store in public/page_images"
 task :store_images do
 end
 
