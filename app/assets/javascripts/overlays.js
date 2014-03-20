@@ -47,6 +47,7 @@ $(document).ready( function() {
   $highlighter.on("click", function() {
     boxColor = $(this).attr("class").split(" ")[1];
     description = $(this).text().trim();
+    $("#"+boxColor).focus();
   });
 
   $("input").on("click", function() {
@@ -83,7 +84,7 @@ $(document).ready( function() {
               });
 
       if (overlays.length > 0) {overlays.pop().remove()}
-      overlays.push($overlay);  
+      if (boxColor) {overlays.push($overlay)}
     });
   })
   .on("mouseup", {start: startCoordinate, end: endCoordinate}, function(e) {  
