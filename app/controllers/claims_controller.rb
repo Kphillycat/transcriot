@@ -29,7 +29,7 @@ class ClaimsController < ApplicationController
     claim.update_damages(damages_params)
     claim.update_page_numbers(params["page"]["start_page_number"])
 
-    redirect_to "/claims/#{claim.id}/edit"
+    redirect_to :back
   end
 
   def claim_params
