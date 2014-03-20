@@ -1,0 +1,1070 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ *
+ */
+ 
+@import url(http://fonts.googleapis.com/css?family=Lusitana);
+@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+/* line 7, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+body {
+  font-family: 'Istok Web', sans-serif;
+  background: url("http://api.thumbr.it/whitenoise-361x370.png?background=136e66ff&noise=0b4f48&density=15&opacity=57");
+  margin: 0px;
+}
+
+/* line 13, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 17, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.torn-page {
+  float: left;
+  width: 460px;
+  height: 800px;
+  background: url("/assets/torn_page.jpg") no-repeat;
+  font-family: 'Lusitana';
+}
+/* line 23, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.torn-page h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  text-align: center;
+}
+
+/* line 29, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.info {
+  padding: 55px;
+  padding-top: 100px;
+  font-size: 18px;
+}
+
+/* line 36, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.holder {
+  width: 1000px;
+  margin: 2% auto;
+}
+
+/* line 41, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+a {
+  text-decoration: none;
+  color: grey;
+}
+
+/* line 46, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+input {
+  width: 40%;
+}
+
+/* line 50, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.spacer {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 43%;
+}
+
+/* line 57, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.transcript {
+  display: inline-block;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  position: fixed;
+  overflow: scroll;
+  width: 43%;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  background: -webkit-radial-gradient(ellipse, #ebe1c8 60%, #dfc29c);
+}
+
+/* line 71, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.form-div {
+  font-size: 1.3em;
+  margin-left: 40px;
+  margin-right: 27px;
+}
+/* line 72, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.form-div div {
+  border: 2px solid tan;
+  border-top: none;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+/* line 82, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.form-div input {
+  font-size: 16px;
+  padding: 4px;
+}
+
+/* line 89, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.nav-bar li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 5px;
+  font-size: 13px;
+  border-bottom: 2px solid tan;
+}
+/* line 95, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.nav-bar li.active {
+  border: 2px solid tan;
+  border-bottom: none;
+}
+
+/* line 102, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.page {
+  background-color: blue;
+  display: inline-block;
+  height: 49%;
+  width: 50%;
+}
+
+/* line 109, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+img {
+  position: relative;
+}
+
+/* line 113, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.page-img {
+  position: relative;
+}
+
+/* line 117, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.ocr_page {
+  position: relative;
+}
+
+/* line 121, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.ocrx_word {
+  font-size: 0.8em;
+  position: absolute;
+  display: block;
+}
+
+/* line 127, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.transcribe-image-holder {
+  margin-top: 5px;
+  display: inline-block;
+  position: relative;
+}
+
+/* line 133, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.overlay {
+  position: absolute;
+}
+
+/* line 137, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.hidden {
+  display: none;
+}
+
+/* line 141, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.transparent {
+  color: transparent;
+}
+
+/* line 145, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.x-out {
+  background-color: white;
+  height: 15px;
+  width: 15px;
+  border: 1px solid black;
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+/* line 157, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.x-in {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 15px;
+  font-family: courier;
+  position: absolute;
+  top: -3px;
+  right: 3px;
+}
+
+/* line 174, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.claim_date, .affidavit_date {
+  background-color: rgba(255, 105, 180, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.claim_date.flag, .affidavit_date.flag {
+  border: 2px solid rgba(255, 105, 180, 0.3);
+}
+
+/* line 178, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.incident_date {
+  background-color: rgba(34, 139, 34, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.incident_date.flag {
+  border: 2px solid rgba(34, 139, 34, 0.3);
+}
+
+/* line 182, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.resolution_date {
+  background-color: rgba(128, 128, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.resolution_date.flag {
+  border: 2px solid rgba(128, 128, 0, 0.3);
+}
+
+/* line 186, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.claim_number {
+  background-color: rgba(255, 0, 255, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.claim_number.flag {
+  border: 2px solid rgba(255, 0, 255, 0.3);
+}
+
+/* line 190, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.record_number {
+  background-color: rgba(255, 165, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.record_number.flag {
+  border: 2px solid rgba(255, 165, 0, 0.3);
+}
+
+/* line 194, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.incident_address {
+  background-color: rgba(135, 206, 250, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.incident_address.flag {
+  border: 2px solid rgba(135, 206, 250, 0.3);
+}
+
+/* line 198, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.incident_address_type {
+  background-color: rgba(25, 25, 112, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.incident_address_type.flag {
+  border: 2px solid rgba(25, 25, 112, 0.3);
+}
+
+/* line 202, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.total_claimed {
+  background-color: rgba(154, 205, 50, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.total_claimed.flag {
+  border: 2px solid rgba(154, 205, 50, 0.3);
+}
+
+/* line 206, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.total_awarded {
+  background-color: rgba(220, 20, 60, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.total_awarded.flag {
+  border: 2px solid rgba(220, 20, 60, 0.3);
+}
+
+/* line 210, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.examiner_name {
+  background-color: rgba(255, 127, 80, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.examiner_name.flag {
+  border: 2px solid rgba(255, 127, 80, 0.3);
+}
+
+/* line 214, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.claimant_name, .person_name_1, .person_name_1 {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.claimant_name.flag, .person_name_1.flag, .person_name_1.flag {
+  border: 2px solid rgba(255, 255, 0, 0.3);
+}
+
+/* line 218, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.previous_address {
+  background-color: rgba(0, 255, 255, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.previous_address.flag {
+  border: 2px solid rgba(0, 255, 255, 0.3);
+}
+
+/* line 222, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.current_address {
+  background-color: rgba(153, 50, 204, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.current_address.flag {
+  border: 2px solid rgba(153, 50, 204, 0.3);
+}
+
+/* line 226, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.gender {
+  background-color: rgba(0, 128, 128, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.gender.flag {
+  border: 2px solid rgba(0, 128, 128, 0.3);
+}
+
+/* line 230, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.race {
+  background-color: rgba(30, 144, 255, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.race.flag {
+  border: 2px solid rgba(30, 144, 255, 0.3);
+}
+
+/* line 234, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.letter_text, .affidavit_text, .testimony_text, .report_text {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.letter_text.flag, .affidavit_text.flag, .testimony_text.flag, .report_text.flag {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description1 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description1.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity1 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity1.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit1 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit1.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost1 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost1.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description2 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description2.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity2 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity2.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit2 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit2.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost2 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost2.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description3 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description3.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity3 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity3.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit3 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit3.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost3 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost3.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description4 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description4.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity4 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity4.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit4 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit4.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost4 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost4.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description5 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description5.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity5 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity5.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit5 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit5.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost5 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost5.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description6 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description6.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity6 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity6.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit6 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit6.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost6 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost6.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description7 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description7.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity7 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity7.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit7 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit7.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost7 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost7.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description8 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description8.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity8 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity8.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit8 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit8.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost8 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost8.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description9 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description9.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity9 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity9.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit9 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit9.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost9 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost9.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description10 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description10.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity10 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity10.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit10 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit10.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost10 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost10.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description11 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description11.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity11 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity11.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit11 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit11.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost11 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost11.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description12 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description12.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity12 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity12.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit12 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit12.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost12 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost12.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description13 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description13.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity13 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity13.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit13 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit13.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost13 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost13.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description14 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description14.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity14 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity14.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit14 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit14.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost14 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost14.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description15 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description15.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity15 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity15.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit15 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit15.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost15 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost15.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description16 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description16.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity16 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity16.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit16 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit16.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost16 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost16.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description17 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description17.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity17 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity17.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit17 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit17.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost17 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost17.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description18 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description18.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity18 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity18.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit18 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit18.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost18 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost18.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description19 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description19.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity19 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity19.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit19 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit19.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost19 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost19.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 239, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description20 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_description20.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 242, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity20 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_quantity20.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 245, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit20 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_unit20.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 248, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost20 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.damage_cost20.flag {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+/* line 253, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.start_page_number, .end_page_number {
+  background-color: rgba(203, 144, 255, 0.2);
+}
+/* line 171, /Users/Sterling/Working/transcriot/app/assets/stylesheets/claims.css.scss */
+.start_page_number.flag, .end_page_number.flag {
+  border: 2px solid rgba(203, 144, 255, 0.3);
+}
