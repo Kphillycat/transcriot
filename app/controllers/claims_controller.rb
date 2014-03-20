@@ -28,7 +28,8 @@ class ClaimsController < ApplicationController
     claim.update_examiner(examiner_params)
     claim.update_damages(damages_params)
     claim.update_page_numbers(params["page"]["start_page_number"])
-
+    claim.save
+    puts "I just saved the claim"
     redirect_to :controller=>'claims', :action => 'edit', :id => claim.id
   end
 
