@@ -43,8 +43,8 @@
   end
 
   def update_damages(damages_params)
-    damages_params[:damages].each do |key, damage|
-      self.damages << Damage.create(damage)
+    damages_params[:damages].each do |index, damage|
+      self.damages.find(index.to_i).update_attributes(damage)
     end
     self.save
   end
@@ -56,6 +56,14 @@
     testimony[:testimony].each do |key, person|
       self.people << Person.create(person)
     end
+    self.save
+  end
+
+  def update_page_numbers(data)
+    self.hocr_layers.each_with_index do |page, i|
+      page.page_number = data.to_i + i
+      page.save
+    end 
     self.save
   end
 
@@ -87,6 +95,8 @@
     end
     self.save
   end
+
+ 
 
 
 end

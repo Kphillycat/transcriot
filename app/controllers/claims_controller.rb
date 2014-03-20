@@ -27,9 +27,9 @@ class ClaimsController < ApplicationController
     claim.update_people(affidavit_params, testimony_params)
     claim.update_examiner(examiner_params)
     claim.update_damages(damages_params)
+    claim.update_page_numbers(params["page"]["start_page_number"])
 
-
-    redirect @claims
+    redirect_to "/claims/#{claim.id}/edit"
   end
 
   def claim_params
