@@ -44,7 +44,13 @@
 
   def update_damages(damages_params)
     damages_params[:damages].each do |index, damage|
-      self.damages.find(index.to_i).update_attributes(damage)
+      unless self.damages.last.id < index.to_i
+        current_damage = self.damages.find(index.to_i)
+        current_damage.description = damage["description"]
+        current_damage.quantity = damage["quantity"]
+        current_damage.unit = damage["unit"]
+        current_damage.total_cost = damage["total_cost"]
+      end
     end
     self.save
   end
