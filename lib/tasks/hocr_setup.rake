@@ -29,9 +29,12 @@ task :claim_objects => :environment do
 end
 
 desc "create hocr and ocr files: run locally"
-task :ocr, [:path] => [:environment, :run_ocrs]
+task :local_everything, [:path] => [:environment, :run_ocrs, :hocr_objects, :claim_objects]
+
+desc "create hocr and ocr files: run locally"
+task :before_heroku, [:path] => [:environment, :run_ocrs]
 
 desc "fill database: run on heroku"
-task :database_objects => [:environment, :hocr_objects, :claim_objects]
+task :on_heroku => [:environment, :hocr_objects, :claim_objects]
 
 

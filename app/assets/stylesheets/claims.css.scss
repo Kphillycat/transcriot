@@ -1,8 +1,8 @@
 // Place all the styles related to the claims controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(http://fonts.googleapis.com/css?family=Lusitana);
-@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative:700);
+@import url("http://fonts.googleapis.com/css?family=Lusitana");
+@import url("http://fonts.googleapis.com/css?family=Cinzel+Decorative:700");
 
 body{ 
 	font-family: 'Istok Web', sans-serif;
@@ -211,7 +211,7 @@ img{
 	@include highlighter-background(255, 127,  80);
 }
 
-.claimant_name, .person_name_1, .person_name_1{
+.claimant_name, .person_name_1, .person_name_2{
 	@include highlighter-background(255, 255,   0);
 }
 
@@ -235,22 +235,21 @@ img{
 	@include highlighter-background(255, 255, 255);	
 }
 
-.damage_description1, .damage_description2, .damage_description3 {
-	@include highlighter-background(0, 0, 0);		
+@for $i from 1 through 20{
+	.damage_description#{$i}{
+		@include highlighter-background(0, 0, 0);		
+	}
+	.damage_quantity#{$i}{
+		@include highlighter-background(0, 0, 0);		
+	}
+	.damage_unit#{$i}{
+		@include highlighter-background(0, 0, 0);		
+	}
+	.damage_cost#{$i} {
+		@include highlighter-background(0, 0, 0);		
+	}
 }
 
-.damage_quantity1, .damage_quantity2, .damage_quantity3 {
-	@include highlighter-background(0, 0, 0);		
-}
-
-.damage_unit1, .damage_unit2, .damage_unit3 {
-	@include highlighter-background(0, 0, 0);		
-}
-
-.damage_cost1, .damage_cost2, .damage_cost3 {
-	@include highlighter-background(0, 0, 0);		
-}
-
-.lavender{
+.start_page_number, .end_page_number{
 	@include highlighter-background(203, 144, 255);
 }

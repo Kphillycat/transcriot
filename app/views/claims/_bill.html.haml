@@ -1,49 +1,28 @@
 .bill.hidden  
   %label Bill/Inventory
   %br
-  %label Damage
-  / %br
-  / %input{:id=>"damage_description", :type=>"text", :name=>"damages[0][description]"}
-  / %span.highlighter.damage_description
-  /   %label{:for=>"damage_description"} Description
-  / %br
-  / %input{:id=>"damage_quantity", :type=>"number", :name=>"damages[0][quantity]"}
-  / %span.highlighter.damage_quantity
-  /   %label{:for=>"damage_quantity"} Quantity
-  / %input{:id=>"damage_unit", :type=>"text", :name=>"damages[0][unit]"}
-  / %span.highlighter.damage_unit
-  /   %label{:for=>"damage_unit"} Unit
-  / %br
-  / %input{:id=>"damage_cost", :type=>"number", :step=>"0.01", :name=>"damages[0][total_cost]"}
-  / %span.highlighter.damage_cost
-  /   %label{:for=>"damage_cost"} Total Cost
-  / %br
-  / %span.highlighter
-  /   %label{:for=>"damage_overcharge"} Overcharged?
-  / %input{:id=>"damage_overcharge", :type=>"checkbox", :name=>"damages[0][overcharge]"}   
-  / %br
   - @claim.damages.each_with_index do |damage, index|
     %label 
     = "Damage ##{index+1}" 
     %br
-    %input{:id=> "damage_description#{index+1}", :type=>"text", :name=>"damages['#{index+1}'][description]", :value=>damage.description}
-    %span{:class => "highlighter damage_description#{index+1}"}
+    %input{:id=>"damage_description#{index+1}", :type=>"text", :name=>"damages[#{index+1}][description]", :value=>damage.description}
+    %span{:class =>"highlighter damage_description#{index+1}"}
       %label{:for=>"damage_description"} Description
     %br
-    %input{:id=>"damage_quantity#{index+1}", :type=>"number", :name=>"damages[quantity]", :value=>damage.quantity}
-    %span{:class => "highlighter damage_quantity#{index+1}"}
+    %input{:id=>"damage_quantity#{index+1}", :type=>"number", :name=>"damages[#{index+1}][quantity]", :value=>damage.quantity}
+    %span{:class =>"highlighter damage_quantity#{index+1}"}
       %label{:for=>"damage_quantity"} Quantity
-    %input{:id=>"damage_unit#{index+1}", :type=>"text", :name=>"damages[unit]", :value=>damage.unit}
-    %span{:class => "highlighter damage_unit#{index+1}"}
+    %input{:id=>"damage_unit#{index+1}", :type=>"text", :name=>"damages[#{index+1}][unit]", :value=>damage.unit}
+    %span{:class =>"highlighter damage_unit#{index+1}"}
       %label{:for=>"damage_unit"} Unit
     %br
-    %input{:id=>"damage_cost#{index+1}", :type=>"number", :step=>"0.01", :name=>"damages[total_cost]", :value=>damage.total_cost}
+    %input{:id=>"damage_cost#{index+1}", :type=>"number", :step=>"0.01", :name=>"damages[#{index+1}][total_cost]", :value=>damage.total_cost}
     %span{:class=>"highlighter damage_cost#{index+1}"}
       %label{:for=>"damage_cost"} Total Cost
     %br
     %span.highlighter
       %label{:for=>"damage_overcharge"} Overcharged?
-    %input{:id=>"damage_overcharge", :type=>"checkbox", :name=>"damages[overcharge]", :value=>damage.overcharge?}   
+    %input{:id=>"damage_overcharge", :type=>"checkbox", :name=>"damages[#{index+1}][overcharge]", :value=>damage.overcharge?}   
     %br
   - form_authenticity_token
   %input{:name=>"authenticity_token", :type=>"hidden", :value=>form_authenticity_token} 

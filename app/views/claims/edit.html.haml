@@ -1,5 +1,5 @@
-= javascript_include_tag 'hocr_toggle'
-= yield :scripts
+%head
+  = javascript_include_tag "application"
 %div
   .spacer
     .transcript
@@ -27,7 +27,7 @@
 
           %button{:type=>"submit", :value=>"submit"} Transcribe!
       %br
-      %a{:href=>"/"} home.
+      %a{:href=>"/"} Go home
         
   .transcribe-image-holder
     - Claim.find(params[:id]).hocr_layers.each do |current_hocr|
