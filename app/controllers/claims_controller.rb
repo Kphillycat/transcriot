@@ -1,8 +1,8 @@
 class ClaimsController < ApplicationController
 
-	def index
+	# def index
 	
-	end
+	# end
 
 	# def show
 	# 	@claim = Claim.find(params[:id])
@@ -30,7 +30,7 @@ class ClaimsController < ApplicationController
     claim.update_page_numbers(params["page"]["start_page_number"])
     claim.save
     puts "I just saved the claim"
-    redirect_to :controller=>'claims', :action => 'edit', :id => claim.id
+    render 'show'
   end
 
   def claim_params
