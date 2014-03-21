@@ -6,6 +6,7 @@ Transcriot::Application.routes.draw do
 
   get '/claims/:id/edit' => 'claims#edit'
   post '/claims/:id' => 'claims#update'
+  get '/claims/:id' => 'claims#show'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
