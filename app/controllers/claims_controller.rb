@@ -30,7 +30,7 @@ class ClaimsController < ApplicationController
     claim.update_page_numbers(params["page"]["start_page_number"])
     claim.save
     puts "I just saved the claim"
-    render 'show'
+    redirect_to :controller => "claims", :action => "show"
   end
 
   def claim_params
