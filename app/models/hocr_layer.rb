@@ -13,8 +13,15 @@ class HocrLayer < ActiveRecord::Base
     directory.each do |file|
       puts "opening file: #{file}"
       new_layer = HocrLayer.create(:filename => file[2..-15])
-      new_layer.modify_file
-      puts "wrote to file #{file}"
+      # new_layer.modify_file
+      # puts "wrote to file #{file}"
+    end
+  end
+
+  def self.modify_all_files
+    self.all.each do |layer|
+      layer.modify_file
+      puts "wrote to file #{layer.filename}"
     end
   end
 

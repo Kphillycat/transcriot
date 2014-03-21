@@ -28,11 +28,17 @@ task :claim_objects => :environment do
   HocrLayer.identify_claims
 end
 
-desc "create hocr and ocr files: run locally"
-task :local_everything, [:path] => [:environment, :run_ocrs, :hocr_objects, :claim_objects]
+desc "adds bbox and img src to hocr files"
+task :modify_hocrs => :environment do
+  puts "modifying files"
+  HocrLayer.modify_all_files
+end
 
 desc "create hocr and ocr files: run locally"
-task :before_heroku, [:path] => [:environment, :run_ocrs]
+task :local_everything, [:path] => [:environment, :run_ocrs, :hocr_objects, :modify_hocrs, :claim_objects]
+
+desc "create hocr and ocr files: run locally"
+task :before_heroku, [:path] => [:environment, :run_ocrs, :hocr_objects, :modify_hocrs]
 
 desc "fill database: run on heroku"
 task :on_heroku => [:environment, :hocr_objects, :claim_objects]
