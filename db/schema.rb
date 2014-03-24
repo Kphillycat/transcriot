@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140318184816) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "claim_examiners", force: true do |t|
     t.integer "claim_id"
     t.integer "examiner_id"
