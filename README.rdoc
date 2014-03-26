@@ -1,2 +1,7 @@
 A rails application for the transcription of Digital Archives. See demo at: http://transcriot.herokuapp.com/
 To run locally: 'rake db:migrate', 'rake database_objects' then 'rail s'
+
+Instructions:
+The transcriptionist can either fill in the appropriate text boxes with the claim information, correct the prepopulated information from the document scraping or highlight a particular area of the claim with the corresponding category color. 
+
+The highlighting can be done by clicking on the title of the text input box and then dragging over the claim image, creating a colored overlay box. Upon completion of the dragging and creation of the overlay box, the words captured by the box will be populated into the selected input field. The transcriptionist has the option of correcting this information as well.
